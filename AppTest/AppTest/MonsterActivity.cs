@@ -25,8 +25,11 @@ namespace AppTest
             SetContentView(Resource.Layout.Monster);
             TextView field = FindViewById<TextView>(Resource.Id.textView1);
             var barcodes = Intent.GetStringExtra("Barcodes");
-            PopulateShoppingBasket(barcodes);
-            CreateMonster();
+            if (barcodes != "")
+            {
+                PopulateShoppingBasket(barcodes);
+                CreateMonster();
+            }
         }
 
         private void CreateMonster()
@@ -36,6 +39,7 @@ namespace AppTest
 
         private void PopulateShoppingBasket(string barcodes)
         {
+            shoppingBasket.Seed = barcodes.Replace("*", "");
             var listStrLineElements = barcodes.Split('*').ToList();
             foreach (var item in listStrLineElements)
             {
