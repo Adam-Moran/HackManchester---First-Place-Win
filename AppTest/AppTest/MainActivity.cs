@@ -20,9 +20,14 @@ namespace AppTest
 
                 var scanner = new ZXing.Mobile.MobileBarcodeScanner();
                 var result = await scanner.Scan();
+                if (result != null)
+                {
+                    StartActivity(typeof(MonsterActivity));
+                }
 
             };
         }
+
     }
 }
 
