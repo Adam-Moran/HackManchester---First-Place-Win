@@ -18,6 +18,11 @@ namespace AppTest.Model
         public DateTime ShoppingDate { get; set; }
         public string Seed { get; set; }
 
+        public ShoppingBasket()
+        {
+            scannedItems = new List<ScannedItem>();
+        }
+
         public void Add(ScannedItem si)
         {
             scannedItems.Add(si);
