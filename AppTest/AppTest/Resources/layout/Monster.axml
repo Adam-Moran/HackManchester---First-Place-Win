@@ -5,9 +5,10 @@
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px">
-    <Button
-        android:text="Button"
+    <TextView
+        android:text="Boo"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/rqReader" />
+        android:id="@+id/textView1" />
 </LinearLayout>
