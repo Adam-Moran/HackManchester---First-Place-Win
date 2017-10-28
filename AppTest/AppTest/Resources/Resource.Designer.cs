@@ -50,6 +50,9 @@ namespace AppTest
 			// aapt resource value: 0x7f020000
 			public const int beans = 2130837504;
 			
+			// aapt resource value: 0x7f020001
+			public const int beans_sm = 2130837505;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -118,9 +121,6 @@ namespace AppTest
 		
 		public partial class String
 		{
-			
-			// aapt resource value: 0x7f040001
-			public const int MonsterActivity = 2130968577;
 			
 			// aapt resource value: 0x7f040000
 			public const int app_name = 2130968576;
