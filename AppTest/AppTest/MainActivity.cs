@@ -10,6 +10,7 @@ namespace AppTest
     [Activity(Label = "AppTest", MainLauncher = true)]
     public class MainActivity : Activity
     {
+        public string s;
         public List<ScannedItem> scannedItems;
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -24,10 +25,11 @@ namespace AppTest
                 var result = await scanner.Scan();
                 if (result != null)
                 {
-                    ScannedItem si = new ScannedItem { Barcode = result.Text };
-                    scannedItems.Add(si);
+                    s = result.Text;
                 }
             };
+            ScannedItem si = new ScannedItem { Barcode = s};
+            scannedItems.Add(si);
         }
 
     }
