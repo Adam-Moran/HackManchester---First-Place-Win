@@ -4,10 +4,12 @@ using Android.Widget;
 using Android.OS;
 using AppTest.Model;
 using ZXing.Mobile;
+using Android.Content;
+
 
 namespace AppTest
 {
-    [Activity(Label = "AppTest", MainLauncher = true)]
+    [Activity(Label = "AppTest", Theme = "@android:style/Theme.NoTitleBar", MainLauncher = true)]
     public class MainActivity : Activity
     {
         public string s;
@@ -17,16 +19,19 @@ namespace AppTest
             base.OnCreate(savedInstanceState);
 
             // Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.Main);           
-            Button qrReader = FindViewById<Button>(Resource.Id.rqReader);
-            qrReader.Click += async (sender, e) => {
+            SetContentView(Resource.Layout.Main);
+            Button qrReader = FindViewById<Button>(Resource.Id.qrReader);
+            Button finished = FindViewById<Button>(Resource.Id.finished);
+
+            qrReader.Click += async (sender, e) =>
+            {
                 MobileBarcodeScanner.Initialize(Application);
-                var scanner = new ZXing.Mobile.MobileBarcodeScanner();
+                var scanner = new MobileBarcodeScanner();
                 var result = await scanner.Scan();
                 if (result != null)
                 {
                     var field = FindViewById<TextView>(Resource.Id.hiddenField).Text;
-                    if ( field == "")
+                    if (field == "")
                     {
                         FindViewById<TextView>(Resource.Id.hiddenField).Text = result.Text;
                     }
@@ -36,8 +41,14 @@ namespace AppTest
                     }
                 }
             };
+            finished.Click += (sender, e) =>
+            {
+                var field = FindViewById<TextView>(Resource.Id.hiddenField).Text;
+                var monster = new Intent(this, typeof(MonsterActivity));
+                monster.PutExtra("Barcodes", field);
+                StartActivity(monster);
+            };
         }
-
     }
 }
 

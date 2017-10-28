@@ -51,9 +51,6 @@
     <Reference Include="FastAndroidCamera, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FastAndroidCamera.2.0.0\lib\MonoAndroid403\FastAndroidCamera.dll</HintPath>
     </Reference>
-    <Reference Include="ScanditSDK">
-      <HintPath>..\packages\Scandit.BarcodePicker.Xamarin.5.5.0.10\lib\MonoAndroid10\ScanditSDK.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
