@@ -71,6 +71,11 @@
   <ItemGroup>
     <Compile Include="Drawing.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Model\Monster.cs" />
+    <Compile Include="Model\MonsterArm.cs" />
+    <Compile Include="Model\MonsterHead.cs" />
+    <Compile Include="Model\MonsterLeg.cs" />
+    <Compile Include="Model\MonsterTorso.cs" />
     <Compile Include="Model\ScannedItem.cs" />
     <Compile Include="Model\ShoppingBasket.cs" />
     <Compile Include="MonsterActivity.cs" />
@@ -102,6 +107,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\beans.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\beans_sm.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

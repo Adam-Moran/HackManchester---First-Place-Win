@@ -12,7 +12,6 @@ namespace AppTest
     [Activity(Label = "AppTest", Theme = "@android:style/Theme.NoTitleBar", MainLauncher = true)]
     public class MainActivity : Activity
     {
-        public string s;
         public List<ScannedItem> scannedItems;
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -23,11 +22,26 @@ namespace AppTest
             Button qrReader = FindViewById<Button>(Resource.Id.qrReader);
             Button finished = FindViewById<Button>(Resource.Id.finished);
 
+            //qrReader button
             qrReader.Click += async (sender, e) =>
             {
+                //Set up barcode scanner
                 MobileBarcodeScanner.Initialize(Application);
                 var scanner = new MobileBarcodeScanner();
-                var result = await scanner.Scan();
+                var options = new MobileBarcodeScanningOptions
+                {
+                    TryHarder = true,
+                    PossibleFormats = new List<ZXing.BarcodeFormat>
+                    {
+                        ZXing.BarcodeFormat.EAN_13
+                    }
+                };
+                
+                scanner.TopText = "Align red line with barcode";
+
+                //wait for scan
+                var result = await scanner.Scan(options);
+
                 if (result != null)
                 {
                     var field = FindViewById<TextView>(Resource.Id.hiddenField).Text;
@@ -37,10 +51,12 @@ namespace AppTest
                     }
                     else
                     {
-                        FindViewById<TextView>(Resource.Id.hiddenField).Text += "***" + result.Text;
+                        FindViewById<TextView>(Resource.Id.hiddenField).Text += "*" + result.Text;
                     }
                 }
             };
+
+            //finish shopping button
             finished.Click += (sender, e) =>
             {
                 var field = FindViewById<TextView>(Resource.Id.hiddenField).Text;
