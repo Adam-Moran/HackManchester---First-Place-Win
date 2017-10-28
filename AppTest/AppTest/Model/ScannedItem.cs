@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace AppTest.Model
 {
-    class ScannedItem
+    public class ScannedItem
     {
         public string Barcode { set; get; }
     }
