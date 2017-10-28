@@ -11,6 +11,7 @@ using Android.Widget;
 
 namespace AppTest
 {
+    [Activity(Label = "AppTest", MainLauncher = false)]
     class MonsterActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
