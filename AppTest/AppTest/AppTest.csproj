@@ -70,6 +70,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Model\Monster.cs" />
+    <Compile Include="Model\MonsterArm.cs" />
+    <Compile Include="Model\MonsterHead.cs" />
+    <Compile Include="Model\MonsterLeg.cs" />
+    <Compile Include="Model\MonsterTorso.cs" />
     <Compile Include="Model\ScannedItem.cs" />
     <Compile Include="Model\ShoppingBasket.cs" />
     <Compile Include="MonsterActivity.cs" />
