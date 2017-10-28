@@ -43,12 +43,12 @@ namespace AppTest
 
         protected override void OnDraw(Canvas canvas)
         {
-            headRect = new Rect(canvas.Width / 3, canvas.Height / 3, 2*(canvas.Width / 3), canvas.Height / 2);
-            bodyRect = new Rect(canvas.Width / 4, canvas.Height / 2, canvas.Width / 2 + canvas.Width / 4, 2*(canvas.Height / 3));
-            leg1Rect = new Rect(canvas.Width / 6, 2*(canvas.Height / 3), 2 * (canvas.Width / 6), canvas.Height);
-            leg2Rect = new Rect(4*(canvas.Width / 6), 2 * (canvas.Height / 3), 5 * (canvas.Width / 6), canvas.Height);
-            arm1Rect = new Rect(canvas.Width / 8, canvas.Height / 2, canvas.Width / 4, 2 * (canvas.Height / 3));
-            arm2Rect = new Rect(6*(canvas.Width / 8), canvas.Height / 2, 7*(canvas.Width / 8), 2 * (canvas.Height / 3));
+            headRect = new Rect(canvas.Width / 3, canvas.Height / 8, 2*(canvas.Width / 3), 5*(canvas.Height / 16));
+            bodyRect = new Rect(canvas.Width / 4, canvas.Height / 4, canvas.Width / 2 + canvas.Width / 4, 2*(canvas.Height / 3));
+            leg1Rect = new Rect(canvas.Width / 4, canvas.Height / 2, canvas.Width / 3, canvas.Height);
+            leg2Rect = new Rect(2*(canvas.Width / 3), canvas.Height /2 , 3*(canvas.Width / 4), canvas.Height);
+            arm1Rect = new Rect(canvas.Width / 8, canvas.Height / 4, canvas.Width / 4, 2 * (canvas.Height / 3));
+            arm2Rect = new Rect(6*(canvas.Width / 8), canvas.Height / 4, 7*(canvas.Width / 8), 2 * (canvas.Height / 3));
 
             Rect bg_rs = new Rect(0, 0, bg.Width, bg.Height);
             Rect bg_rd = new Rect(0, 0, canvas.Width, canvas.Height);
@@ -59,13 +59,13 @@ namespace AppTest
             //draw background
             canvas.DrawBitmap(bg, bg_rs, bg_rd, paint);
 
-            //draw head
-            canvas.DrawBitmap(monster, monst_rs, headRect, paint);
-            //draw body
-            canvas.DrawBitmap(monster, monst_rs, bodyRect, paint);
             //draw legs
             canvas.DrawBitmap(monster, monst_rs, leg1Rect, paint);
             canvas.DrawBitmap(monster, monst_rs, leg2Rect, paint);
+            //draw body
+            canvas.DrawBitmap(monster, monst_rs, bodyRect, paint);
+            //draw head
+            canvas.DrawBitmap(monster, monst_rs, headRect, paint);
             //draw arms
             canvas.DrawBitmap(monster, monst_rs, arm1Rect, paint);
             canvas.DrawBitmap(monster, monst_rs, arm2Rect, paint);
