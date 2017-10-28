@@ -6,24 +6,24 @@
     android:minWidth="25px"
     android:minHeight="25px">
     <ImageView
-        android:src="@drawable/beans"
-        android:id="@+id/imageView1"
-        android:layout_column="0"
-        android:layout_row="0"
-        android:layout_width="match_parent" />
-    <Button
-        android:text="Click to Scan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/qrReader"
-        android:layout_column="0"
-        android:layout_row="1" />
-    <TextView
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/hiddenField" />
-    <Button
-        android:text="Finished Shopping"
-        android:id="@+id/finished"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+       android:src="@drawable/beans"
+       android:id="@+id/imageView1"
+       android:layout_column="0"
+       android:layout_row="0"
+       android:layout_width="match_parent" />
+   <Button
+       android:text="Click to Scan"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/qrReader"
+       android:layout_column="0"
+       android:layout_row="1" />
+  <Button
+      android:text="Finished Shopping"
+      android:id="@+id/finished"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content" />
+  <TextView
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:id="@+id/hiddenField" />
 </GridLayout>
