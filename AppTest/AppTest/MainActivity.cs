@@ -16,14 +16,17 @@ namespace AppTest
             base.OnCreate(savedInstanceState);
 
             // Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.Main);
-            MobileBarcodeScanner.Initialize(Application);
+            SetContentView(Resource.Layout.Main);           
             Button qrReader = FindViewById<Button>(Resource.Id.rqReader);
             qrReader.Click += async (sender, e) => {
+                MobileBarcodeScanner.Initialize(Application);
                 var scanner = new ZXing.Mobile.MobileBarcodeScanner();
                 var result = await scanner.Scan();
-                ScannedItem si = new ScannedItem{Barcode = result.Text};
-                scannedItems.Add(si);
+                if (result != null)
+                {
+                    ScannedItem si = new ScannedItem { Barcode = result.Text };
+                    scannedItems.Add(si);
+                }
             };
         }
 
