@@ -6,7 +6,6 @@ using AppTest.Model;
 using ZXing.Mobile;
 using Android.Content;
 
-
 namespace AppTest
 {
     [Activity(Label = "AppTest", Theme = "@android:style/Theme.NoTitleBar", MainLauncher = true)]
@@ -61,9 +60,12 @@ namespace AppTest
             finished.Click += (sender, e) =>
             {
                 var field = FindViewById<TextView>(Resource.Id.hiddenField).Text;
-                var monster = new Intent(this, typeof(MonsterActivity));
-                monster.PutExtra("Barcodes", field);
-                StartActivity(monster);
+                if (field != "")
+                {
+                    var monster = new Intent(this, typeof(MonsterActivity));
+                    monster.PutExtra("Barcodes", field);
+                    StartActivity(monster);
+                }
             };
         }
     }
