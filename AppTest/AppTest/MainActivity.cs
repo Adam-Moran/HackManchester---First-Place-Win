@@ -12,7 +12,6 @@ namespace AppTest
     [Activity(Label = "AppTest", Theme = "@android:style/Theme.NoTitleBar", MainLauncher = true)]
     public class MainActivity : Activity
     {
-        public string s;
         public List<ScannedItem> scannedItems;
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -37,7 +36,7 @@ namespace AppTest
                     }
                     else
                     {
-                        FindViewById<TextView>(Resource.Id.hiddenField).Text += "***" + result.Text;
+                        FindViewById<TextView>(Resource.Id.hiddenField).Text += "*" + result.Text;
                     }
                 }
             };
