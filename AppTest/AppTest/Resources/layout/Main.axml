@@ -18,4 +18,8 @@
         android:id="@+id/rqReader"
         android:layout_column="0"
         android:layout_row="1" />
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/hiddenField"
+        />
 </GridLayout>

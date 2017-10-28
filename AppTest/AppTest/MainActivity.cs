@@ -25,11 +25,17 @@ namespace AppTest
                 var result = await scanner.Scan();
                 if (result != null)
                 {
-                    s = result.Text;
+                    var field = FindViewById<TextView>(Resource.Id.hiddenField).Text;
+                    if ( field != "")
+                    {
+                        FindViewById<TextView>(Resource.Id.hiddenField).Text = result.Text;
+                    }
+                    else
+                    {
+                        FindViewById<TextView>(Resource.Id.hiddenField).Text += "***" + result.Text;
+                    }
                 }
             };
-            ScannedItem si = new ScannedItem { Barcode = s};
-            scannedItems.Add(si);
         }
 
     }
