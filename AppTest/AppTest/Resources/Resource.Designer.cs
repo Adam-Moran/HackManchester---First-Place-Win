@@ -47,11 +47,14 @@ namespace AppTest
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f040002
+			public const int contentFrame = 2130968578;
+			
 			// aapt resource value: 0x7f040001
-			public const int contentFrame = 2130968577;
+			public const int rqReader = 2130968577;
 			
 			// aapt resource value: 0x7f040000
-			public const int rqReader = 2130968576;
+			public const int textView1 = 2130968576;
 			
 			static Id()
 			{
@@ -70,10 +73,13 @@ namespace AppTest
 			public const int Main = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int zxingscanneractivitylayout = 2130837505;
+			public const int Monster = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int zxingscannerfragmentlayout = 2130837506;
+			public const int zxingscanneractivitylayout = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int zxingscannerfragmentlayout = 2130837507;
 			
 			static Layout()
 			{
