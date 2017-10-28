@@ -26,7 +26,7 @@ namespace AppTest
                 if (result != null)
                 {
                     var field = FindViewById<TextView>(Resource.Id.hiddenField).Text;
-                    if ( field != "")
+                    if ( field == "")
                     {
                         FindViewById<TextView>(Resource.Id.hiddenField).Text = result.Text;
                     }
