@@ -69,6 +69,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Drawing.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Model\Monster.cs" />
     <Compile Include="Model\MonsterArm.cs" />
