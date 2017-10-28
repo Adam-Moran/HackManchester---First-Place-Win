@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Widget;
 using Android.OS;
+using ZXing.Mobile;
 
 namespace AppTest
 {
@@ -13,6 +14,14 @@ namespace AppTest
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
+            MobileBarcodeScanner.Initialize(Application);
+            Button qrReader = FindViewById<Button>(Resource.Id.rqReader);
+            qrReader.Click += async (sender, e) => {
+
+                var scanner = new ZXing.Mobile.MobileBarcodeScanner();
+                var result = await scanner.Scan();
+
+            };
         }
     }
 }
