@@ -19,13 +19,15 @@ namespace AppTest
     class Drawing : View
     {
         private readonly ShapeDrawable _shape;
+        private Bitmap bg;
+        private Paint paint;
         public Drawing(Context context) : base(context)
         {
-            var paint = new Paint();
+            bg = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.BackgroundSmall);
+            paint = new Paint();
             paint.SetARGB(255, 200, 255, 0);
             paint.SetStyle(Paint.Style.Stroke);
             paint.StrokeWidth = 4;
-
             _shape = new ShapeDrawable(new OvalShape());
             _shape.Paint.Set(paint);
 
@@ -34,7 +36,11 @@ namespace AppTest
 
         protected override void OnDraw(Canvas canvas)
         {
+            Rect rs = new Rect(0, 0, bg.Width, bg.Height);
+            Rect rd= new Rect(0, 0, canvas.Width, canvas.Height);
             _shape.Draw(canvas);
+            canvas.DrawBitmap(bg, rs, rd, new Paint());
+
         }
 
     }
