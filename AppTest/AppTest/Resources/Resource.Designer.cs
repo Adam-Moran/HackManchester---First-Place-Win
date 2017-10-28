@@ -2381,14 +2381,14 @@ namespace AppTest
 			// aapt resource value: 0x7f07002e
 			public const int fill_vertical = 2131165230;
 			
-			// aapt resource value: 0x7f070075
-			public const int finished = 2131165301;
+			// aapt resource value: 0x7f070074
+			public const int finished = 2131165300;
 			
 			// aapt resource value: 0x7f070038
 			public const int @fixed = 2131165240;
 			
-			// aapt resource value: 0x7f070074
-			public const int hiddenField = 2131165300;
+			// aapt resource value: 0x7f070075
+			public const int hiddenField = 2131165301;
 			
 			// aapt resource value: 0x7f070005
 			public const int home = 2131165189;
@@ -2681,11 +2681,6 @@ namespace AppTest
 			// aapt resource value: 0x7f070009
 			public const int up = 2131165193;
 			
-			// aapt resource value: 0x7f050002
-			public const int finished = 2131034114;
-			
-			// aapt resource value: 0x7f050003
-			public const int hiddenField = 2131034115;
 			// aapt resource value: 0x7f070014
 			public const int useLogo = 2131165204;
 			

@@ -39,7 +39,7 @@ namespace AppTest
             foreach (var item in listStrLineElements)
             {
                 ScannedItem si = new ScannedItem{Barcode = item};
-                shoppingBasket.ScannedItems.Add(si);
+                shoppingBasket.scannedItems.Add(si);
             }
         }
     }

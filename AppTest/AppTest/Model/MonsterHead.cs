@@ -14,5 +14,6 @@ namespace AppTest.Model
 {
     public class MonsterHead
     {
+        public string test { get; set; }
     }
 }
