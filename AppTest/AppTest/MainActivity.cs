@@ -20,9 +20,10 @@ namespace AppTest
 
                 var scanner = new ZXing.Mobile.MobileBarcodeScanner();
                 var result = await scanner.Scan();
-
+                
             };
         }
+
     }
 }
 
