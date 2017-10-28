@@ -15,6 +15,7 @@ namespace AppTest
     [Activity(Label = "AppTest", MainLauncher = false)]
     class MonsterActivity : Activity
     {
+        public Monster monster;
         public ShoppingBasket shoppingBasket;
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -30,7 +31,7 @@ namespace AppTest
 
         private void CreateMonster()
         {
-            throw new NotImplementedException();
+            monster = new Monster(shoppingBasket);
         }
 
         private void PopulateShoppingBasket(string barcodes)
@@ -38,8 +39,11 @@ namespace AppTest
             var listStrLineElements = barcodes.Split('*').ToList();
             foreach (var item in listStrLineElements)
             {
-                ScannedItem si = new ScannedItem{Barcode = item};
-                shoppingBasket.scannedItems.Add(si);
+                if (item != "")
+                {
+                    ScannedItem si = new ScannedItem { Barcode = item };
+                    shoppingBasket.scannedItems.Add(si);
+                }
             }
         }
     }

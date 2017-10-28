@@ -20,5 +20,10 @@ namespace AppTest.Model
         public MonsterArm MonsterArmTwo { get; set; }
         public MonsterLeg MonsterLegOne { get; set; }
         public MonsterLeg MonsterLegTwo { get; set; }
+
+        public Monster(ShoppingBasket shoppingBasket)
+        {
+            
+        }
     }
 }
