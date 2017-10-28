@@ -15,9 +15,10 @@ namespace AppTest
     [Activity(Label = "AppTest", MainLauncher = false)]
     class MonsterActivity : Activity
     {
-        public ShoppingBasket ShoppingBasket;
+        public ShoppingBasket shoppingBasket;
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            shoppingBasket = new ShoppingBasket();
             base.OnCreate(savedInstanceState);
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Monster);
@@ -38,7 +39,7 @@ namespace AppTest
             foreach (var item in listStrLineElements)
             {
                 ScannedItem si = new ScannedItem{Barcode = item};
-                ShoppingBasket.ScannedItems.Add(si);
+                shoppingBasket.ScannedItems.Add(si);
             }
         }
     }
