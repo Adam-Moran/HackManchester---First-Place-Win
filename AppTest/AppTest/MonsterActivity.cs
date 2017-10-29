@@ -18,6 +18,9 @@ namespace AppTest
         public Dictionary dictionary;
         public Monster monster;
         public ShoppingBasket shoppingBasket;
+        public int Health;
+        public int Attack;
+        public Random rnd;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             shoppingBasket = new ShoppingBasket();
@@ -43,6 +46,17 @@ namespace AppTest
         private void PopulateShoppingBasket(string barcodes)
         {
             shoppingBasket.Seed = barcodes.Replace("*", "");
+            if (shoppingBasket.Seed != null)
+            {
+                Random rnd = new Random(Int32.Parse(shoppingBasket.Seed.Substring(0,9)));
+                Health = rnd.Next(70, 100);
+                Attack = rnd.Next(20, 30);
+                foreach (var product in shoppingBasket.ScannedItems)
+                {
+                   Health += rnd.Next(0, 5);
+                   Attack += rnd.Next(0, 2);
+                }
+            }
             var listStrLineElements = barcodes.Split('*').ToList();
             foreach (var item in listStrLineElements)
             {
