@@ -31,8 +31,8 @@ namespace AppTest
             armUp[0] = ((random.Next() % 2 == 1) ? true : false);
             armUp[1] = ((random.Next() % 2 == 1) ? true : false);
             bodyParts = bP;
-            bodySourceRects = new Rect[8];
-            bodyRects = new Rect[8];
+            bodySourceRects = new Rect[9];
+            bodyRects = new Rect[9];
             bg = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.BackgroundSmall);
             int facenum = random.Next() % 5;
             armLength = random.Next() % 100;
@@ -99,9 +99,9 @@ namespace AppTest
                 bodyRects[ARM2] = new Rect(6 * (canvas.Width / 8), canvas.Height / 4, 7 * (canvas.Width / 8), (2 * (canvas.Height / 3)) - armLength);
             else
                 bodyRects[ARM2] = new Rect(6 * (canvas.Width / 8), armLength, 7 * (canvas.Width / 8), 3*(canvas.Height / 8));
-            bodyRects[EYE1] = new Rect(canvas.Width / 3, canvas.Height / 8, 2 * (canvas.Width / 3), 5 * (canvas.Height / 16));
+            bodyRects[EYE1] = new Rect(canvas.Width / 3 + 30, canvas.Height / 7, 2 * (canvas.Width / 3) - 200, 5 * (canvas.Height / 22));
             bodyRects[SHOULDERS] = new Rect(canvas.Width / 8, canvas.Height / 4, 7 * (canvas.Width / 8), 3*(canvas.Height / 8));
-            bodyRects[EYE2] = new Rect(canvas.Width / 3, canvas.Height / 8, (2 * (canvas.Width / 3)) + 2, 5 * (canvas.Height / 16));
+            bodyRects[EYE2] = new Rect(canvas.Width / 3 + 200, canvas.Height / 7, 2 * (canvas.Width / 3)  ,5 * (canvas.Height / 22));
             Rect bg_rs = new Rect(0, 0, bg.Width, bg.Height);
             Rect bg_rd = new Rect(0, 0, canvas.Width, canvas.Height);
 
