@@ -35,7 +35,7 @@ namespace AppTest
             { "5054267000216", new DictionaryItem("Lucozade", Resource.Drawable.lucozade)},
             { "3329770056923", new DictionaryItem("Froobe", Resource.Drawable.froob)},
             { "5030765032904", new DictionaryItem("Caramel Chocolate", Resource.Drawable.caramel)},
-            { "7613033591877", new DictionaryItem("Blue Ribbon", Resource.Drawable.water)},
+            { "7613033591877", new DictionaryItem("Blue Ribbon", Resource.Drawable.blueriband)},
             { "Key1", new DictionaryItem("haribo", Resource.Drawable.haribobears)},
             { "7622210723512", new DictionaryItem("Chomp", Resource.Drawable.chomp)},
             { "8008440222008", new DictionaryItem("Peroni", Resource.Drawable.peroni)},
