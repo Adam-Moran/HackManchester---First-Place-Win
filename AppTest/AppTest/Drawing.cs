@@ -17,8 +17,10 @@ namespace AppTest
         public Paint text;
         private Rect[] bodyRects, bodySourceRects;
         private int armLength;
+        public int Health;
+        public int Attack;
 
-        public Drawing(Context context, Bitmap[] bP) : base(context)
+        public Drawing(Context context, Bitmap[] bP,int health, int attack) : base(context)
         {
             text = new Paint();
             Random random = new Random();
@@ -86,9 +88,12 @@ namespace AppTest
             canvas.DrawBitmap(face, bodySourceRects[6], bodyRects[6], paint);
             text.TextSize = 120;
             text.Color = Color.Black;
+
             var personGenerator = new PersonNameGenerator();
             var name = personGenerator.GenerateRandomFirstAndLastName();
-            canvas.DrawText(name,canvas.Width /2, 50, text);
+            canvas.DrawText(Health.ToString(), canvas.Width / 9, 200, text);
+            canvas.DrawText(Attack.ToString(), (float)(canvas.Width / 1.2), 200, text);
+            canvas.DrawText(name, canvas.Width / 4, 300, text);
         }
     }
 }

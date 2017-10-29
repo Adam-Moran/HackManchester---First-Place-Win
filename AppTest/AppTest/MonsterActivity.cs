@@ -34,7 +34,7 @@ namespace AppTest
             {
                 PopulateShoppingBasket(barcodes);
                 monster = CreateMonster();
-                SetContentView(new Drawing(this, monster.GetImages()));
+                SetContentView(new Drawing(this, monster.GetImages(), Health,Attack));
             }
         }
 
