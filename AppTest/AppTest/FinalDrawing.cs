@@ -39,32 +39,33 @@ namespace AppTest
 
         protected override void OnDraw(Canvas canvas)
         {
-            canvas.DrawBitmap(pBitmap, DrawBodyPart(BitmapFactory.DecodeResource(Resources, Resource.Drawable.BackgroundSmall), 2f, 1f, 6.5f, 4.6f, 0), null);
-            canvas.DrawBitmap(pBitmap, DrawBodyPart(BitmapFactory.DecodeResource(Resources, Resource.Drawable.BackgroundSmall), 0.5f, 1, 1.8f, 1.7f, -5), null);
-            canvas.DrawBitmap(pBitmap, DrawBodyPart(BitmapFactory.DecodeResource(Resources, Resource.Drawable.BackgroundSmall), 0.5f, 1, 3.6f, 1.7f, 5), null);
+            //Draw Legs
+            canvas.DrawBitmap(pBitmap, DrawBodyPart(BitmapFactory.DecodeResource(Resources, Resource.Drawable.BackgroundSmall), 0.5f, 1, canvas.Width / 4, canvas.Height / 2, 5), null);
+            canvas.DrawBitmap(pBitmap, DrawBodyPart(BitmapFactory.DecodeResource(Resources, Resource.Drawable.BackgroundSmall), 0.5f, 1, canvas.Width / 2, canvas.Height / 2, -5), null);
+            //Draw Arms
+            canvas.DrawBitmap(pBitmap, DrawBodyPart(BitmapFactory.DecodeResource(Resources, Resource.Drawable.BackgroundSmall), 0.5f, 0.8f, canvas.Width / 8, canvas.Height / 8, 5), null);
+            canvas.DrawBitmap(pBitmap, DrawBodyPart(BitmapFactory.DecodeResource(Resources, Resource.Drawable.BackgroundSmall), 0.5f, 0.8f, 3 * (canvas.Width / 4), canvas.Height / 8, -5), null);
+
+            //canvas.DrawBitmap(pBitmap, DrawBodyPart(BitmapFactory.DecodeResource(Resources, Resource.Drawable.BackgroundSmall), 0.5f, 1, 1.8f, 1.7f, -5), null);
+            //canvas.DrawBitmap(pBitmap, DrawBodyPart(BitmapFactory.DecodeResource(Resources, Resource.Drawable.BackgroundSmall), 0.5f, 1, 3.6f, 1.7f, 5), null);
+            /*bodyRects[0] = new Rect(canvas.Width / 4, canvas.Height / 2, 3 * (canvas.Width / 8), canvas.Height);
+            bodyRects[1] = new Rect(5 * (canvas.Width / 8), canvas.Height / 2, 3 * (canvas.Width / 4), canvas.Height);
+            bodyRects[2] = new Rect(canvas.Width / 4, canvas.Height / 4, canvas.Width / 2 + canvas.Width / 4, 2 * (canvas.Height / 3));
+            bodyRects[3] = new Rect(canvas.Width / 3, canvas.Height / 8, 2 * (canvas.Width / 3), 5 * (canvas.Height / 16));
+            bodyRects[4] = new Rect(canvas.Width / 8, canvas.Height / 4, canvas.Width / 4, 2 * (canvas.Height / 3));
+            bodyRects[5] = new Rect(6 * (canvas.Width / 8), canvas.Height / 4, 7 * (canvas.Width / 8), 2 * (canvas.Height / 3));
+            bodyRects[6] = new Rect(canvas.Width / 3, canvas.Height / 8, 2 * (canvas.Width / 3), 5 * (canvas.Height / 16));*/
         }
 
         public Matrix DrawBodyPart(Bitmap image, float sizeX, float sizeY,float xOffset, float yOffset, int rotate)
         {
-            var outline = new Path();
-            RectF rectF = new RectF();
-            outline.ComputeBounds(rectF, true);
             Matrix matrix = new Matrix();
-            //canvas.Width / 3, canvas.Height / 8, 2 * (canvas.Width / 3), 5 * (canvas.Height / 16)
-            float vw = this.Width;
-            float vh = this.Height;
-            float bw = vw / sizeX;
-            float bh = vh / sizeY;
-            float hvw = vw / 2;
-            float hvh = vh / 2;
-            float s1x = vw / bw;
-            float s1y = vh / bh;
-            matrix.PostScale(s1x, s1y);
-            matrix.PostTranslate(-hvw, -hvh);
-            float offsetX = pOffsetX, offsetY = pOffsetY;
-            offsetX += hvw + (this.Width / xOffset);
-            offsetY += hvh + (this.Height / yOffset);
-            matrix.PostTranslate(offsetX, offsetY);
+            float vw = Width;
+            float vh = Height;
+            float s1x = vw / sizeX;
+            float s1y = vh / sizeY;
+            matrix.PostScale(sizeX, sizeY); // s1x, s1y);
+            matrix.PostTranslate(xOffset, yOffset);
             matrix.PostRotate(rotate);
             return matrix;
         }

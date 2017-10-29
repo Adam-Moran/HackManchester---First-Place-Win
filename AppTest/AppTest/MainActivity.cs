@@ -23,8 +23,8 @@ namespace AppTest
             Button qrReader = FindViewById<Button>(Resource.Id.qrReader);
             Button finished = FindViewById<Button>(Resource.Id.finished);
             //SetContentView(new Drawing(this));
-            //Bitmap[] test = new Bitmap[1];
-            //SetContentView(new FinalDrawing(this,test ,0));
+            Bitmap[] test = new Bitmap[1];
+            SetContentView(new FinalDrawing(this,test ,0));
 
 
             //qrReader button
