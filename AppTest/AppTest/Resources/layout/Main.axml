@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px"
-    android:background="@drawable/bg">
+    android:background="@drawable/bg2">
     <Button
         android:text="Click to Scan"
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
         android:src="@drawable/beans"
         android:id="@+id/imageView1"
         android:layout_column="0"
-        android:layout_row="2"
+        android:layout_row="3"
         android:layout_width="match_parent" />
     <TextView
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -32,5 +32,6 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/textView1"
         android:layout_column="0"
+        android:gravity="center"
         android:layout_row="0" />
 </GridLayout>
