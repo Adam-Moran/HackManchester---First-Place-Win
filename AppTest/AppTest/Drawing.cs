@@ -33,56 +33,34 @@ namespace AppTest
             bodyParts = bP;
             bodySourceRects = new Rect[9];
             bodyRects = new Rect[9];
-            bg = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.BackgroundSmall);
+            bg = random.Next() % 2 ==1 ? BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.BackgroundSmall) : BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.Background2Small);
             int facenum = random.Next() % 5;
             armLength = random.Next() % 100;
-            RandomEye1(facenum,context);
-            RandomEye2(facenum, context);
+            eye = eye2 = RandomEye(facenum, context);
             paint = new Paint();
         }
 
-        public void RandomEye1(int facenum,Context context)
+        public Bitmap RandomEye(int facenum,Context context)
         {
-            switch (facenum)
+            /*switch (facenum)
             {
                 case 0:
-                    eye = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.e2);
+                    return BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.e2);
                     break;
                 case 1:
-                    eye = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.e3);
+                    return BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.e3);
                     break;
                 case 2:
-                    eye = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.e4);
+                    return BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.e4);
                     break;
                 case 3:
-                    eye = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.e5);
+                    return BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.e5);
                     break;
                 case 4:
-                    eye = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.e6);
+                    return BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.e6);
                     break;
-            }
-        }
-
-        public void RandomEye2(int facenum, Context context)
-        {
-            switch (facenum)
-            {
-                case 0:
-                    eye2 = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.e2);
-                    break;
-                case 1:
-                    eye2 = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.e3);
-                    break;
-                case 2:
-                    eye2 = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.e4);
-                    break;
-                case 3:
-                    eye2 = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.e5);
-                    break;
-                case 4:
-                    eye2 = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.e6);
-                    break;
-            }
+            }*/
+            return BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.eyes);
         }
 
         protected override void OnDraw(Canvas canvas)
@@ -99,9 +77,9 @@ namespace AppTest
                 bodyRects[ARM2] = new Rect(6 * (canvas.Width / 8), canvas.Height / 4, 7 * (canvas.Width / 8), (2 * (canvas.Height / 3)) - armLength);
             else
                 bodyRects[ARM2] = new Rect(6 * (canvas.Width / 8), armLength, 7 * (canvas.Width / 8), 3*(canvas.Height / 8));
-            bodyRects[EYE1] = new Rect(canvas.Width / 3 + 30, canvas.Height / 7, 2 * (canvas.Width / 3) - 200, 5 * (canvas.Height / 22));
+            bodyRects[EYE1] = new Rect(3*(canvas.Width / 8), canvas.Height / 7, 5 * (canvas.Width / 8), 5 * (canvas.Height / 22));
             bodyRects[SHOULDERS] = new Rect(canvas.Width / 8, canvas.Height / 4, 7 * (canvas.Width / 8), 3*(canvas.Height / 8));
-            bodyRects[EYE2] = new Rect(canvas.Width / 3 + 200, canvas.Height / 7, 2 * (canvas.Width / 3)  ,5 * (canvas.Height / 22));
+            //bodyRects[EYE2] = new Rect(canvas.Width / 2, canvas.Height / 7, 5 * (canvas.Width / 8)  ,5 * (canvas.Height / 22));
             Rect bg_rs = new Rect(0, 0, bg.Width, bg.Height);
             Rect bg_rd = new Rect(0, 0, canvas.Width, canvas.Height);
 
@@ -117,15 +95,15 @@ namespace AppTest
                 canvas.DrawBitmap(bodyParts[i], bodySourceRects[i], bodyRects[i], paint);
             }
             canvas.DrawBitmap(eye, bodySourceRects[6], bodyRects[6], paint);
-            canvas.DrawBitmap(eye2, bodySourceRects[8], bodyRects[8], paint);
-            text.TextSize = 120;
-            text.Color = Color.Black;
-
+            // canvas.DrawBitmap(eye2, bodySourceRects[8], bodyRects[8], paint);
+            
             var personGenerator = new PersonNameGenerator();
             var name = personGenerator.GenerateRandomFirstAndLastName();
-            canvas.DrawText(Health.ToString(), canvas.Width / 9, 100, text);
-            canvas.DrawText(Attack.ToString(), (float)(canvas.Width / 1.1), 100, text);
-            canvas.DrawText(name, canvas.Width / 6, 200, text);
+            text.TextSize = canvas.Width/name.Length+5;
+            text.Color = Color.Black;
+            canvas.DrawText("HP: "+Health.ToString(), canvas.Width / 10, 100, text);
+            canvas.DrawText("AP: "+Attack.ToString(), (float)(canvas.Width / 10), 150, text);
+            canvas.DrawText(name, canvas.Width / 10, 50, text);
         }
     }
 }

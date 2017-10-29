@@ -40,10 +40,10 @@ namespace AppTest
             { "7622210723512", new DictionaryItem("Chomp", Resource.Drawable.chomp)},
             { "8008440222008", new DictionaryItem("Peroni", Resource.Drawable.peroni)},
             { "5020379129541", new DictionaryItem("Fruit Shortcake", Resource.Drawable.water)},
-            //{ "Key1", new DictionaryItem("Redbull", Resource.Drawable.redbull)},
-            //{ "Key1", new DictionaryItem("Pasta", Resource.Drawable.pasta)},
-            //{ "Key1", new DictionaryItem("Cereal", Resource.Drawable.Cereal)},
-            //{ "Key1", new DictionaryItem("Name1", Resource.Drawable.water)},
+            { "90162602", new DictionaryItem("Redbull", Resource.Drawable.redbull)},
+            { "Key2", new DictionaryItem("Pasta", Resource.Drawable.pasta)},
+            { "Key3", new DictionaryItem("Cereal", Resource.Drawable.Cereal)},
+            { "Key4", new DictionaryItem("Name1", Resource.Drawable.water)},
         };
     }
 }

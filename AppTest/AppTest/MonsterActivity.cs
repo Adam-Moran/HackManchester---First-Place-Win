@@ -48,7 +48,7 @@ namespace AppTest
             shoppingBasket.Seed = barcodes.Replace("*", "");
             if (shoppingBasket.Seed != null)
             {
-                Random rnd = new Random(Int32.Parse(shoppingBasket.Seed.Substring(0,9)));
+                Random rnd = new Random(Int32.Parse(shoppingBasket.Seed.Substring(0,7)));
                 Health = rnd.Next(70, 100);
                 Attack = rnd.Next(20, 30);
                 foreach (var product in shoppingBasket.ScannedItems)
