@@ -27,6 +27,7 @@ namespace AppTest
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
+            FindViewById<TextView>(Resource.Id.hiddenField).SetHeight(0);
             Button qrReader = FindViewById<Button>(Resource.Id.qrReader);
             Button finished = FindViewById<Button>(Resource.Id.finished);
             //SetContentView(new Drawing(this));
