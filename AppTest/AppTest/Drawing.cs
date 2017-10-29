@@ -99,7 +99,7 @@ namespace AppTest
                 bodyRects[ARM2] = new Rect(6 * (canvas.Width / 8), canvas.Height / 4, 7 * (canvas.Width / 8), (2 * (canvas.Height / 3)) - armLength);
             else
                 bodyRects[ARM2] = new Rect(6 * (canvas.Width / 8), armLength, 7 * (canvas.Width / 8), 3*(canvas.Height / 8));
-            bodyRects[FACE] = new Rect(canvas.Width / 3, canvas.Height / 8, 2 * (canvas.Width / 3), 5 * (canvas.Height / 16));
+            bodyRects[EYE1] = new Rect(canvas.Width / 3, canvas.Height / 8, 2 * (canvas.Width / 3), 5 * (canvas.Height / 16));
             bodyRects[SHOULDERS] = new Rect(canvas.Width / 8, canvas.Height / 4, 7 * (canvas.Width / 8), 3*(canvas.Height / 8));
             bodyRects[EYE2] = new Rect(canvas.Width / 3, canvas.Height / 8, (2 * (canvas.Width / 3)) + 2, 5 * (canvas.Height / 16));
             Rect bg_rs = new Rect(0, 0, bg.Width, bg.Height);
