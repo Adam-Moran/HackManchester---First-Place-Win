@@ -21,13 +21,6 @@ namespace AppTest
     public class MainActivity : Activity
     {
         public List<ScannedItem> scannedItems;
-        private HttpClient client;
-
-        public MainActivity()
-        {
-            client = new HttpClient();
-            client.MaxResponseContentBufferSize = 256000;
-        }
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -37,12 +30,9 @@ namespace AppTest
             Button qrReader = FindViewById<Button>(Resource.Id.qrReader);
             Button finished = FindViewById<Button>(Resource.Id.finished);
             //SetContentView(new Drawing(this));
-            Bitmap[] test = new Bitmap[1];
-            SetContentView(new FinalDrawing(this,test ,0));
-
-
+            //Bitmap[] test = new Bitmap[1];
             //SetContentView(new Drawing(this));
-            var a = GetDepts();
+            //SetContentView(new Drawing(this));
             //qrReader button
             qrReader.Click += async (sender, e) =>
             {
@@ -88,19 +78,6 @@ namespace AppTest
                     StartActivity(monster);
                 }
             };
-        }
-        public async Task<string[]> GetDepts()
-        {
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri("http://<ipAddress:port>/");
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                var text = FindViewById<TextView>(Resource.Id.textView1);
-                var a = await client.GetAsync("/api/dept");
-                text.Text = "test";
-                return null;
-            }
         }
     }
 }

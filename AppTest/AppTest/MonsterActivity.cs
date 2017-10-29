@@ -29,7 +29,7 @@ namespace AppTest
             {
                 PopulateShoppingBasket(barcodes);
                 monster = CreateMonster();
-                SetContentView(new FinalDrawing(this, monster.GetImages(), 0));
+                SetContentView(new Drawing(this, monster.GetImages()));
             }
         }
 
