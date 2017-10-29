@@ -70,8 +70,11 @@ namespace AppTest
                         si.image = dItem.image;
                     } else
                     {
-                        si.Name = "Unknown";
-                        si.image = Resource.Drawable.water;
+                        Random random = new Random();
+                        string k = dictionary.productDictionary.Keys.ToList()[random.Next()%dictionary.productDictionary.Count];
+                        DictionaryItem dItem = (DictionaryItem)dictionary.productDictionary[k];
+                        si.Name = dItem.name;
+                        si.image = dItem.image;
                     }
                     shoppingBasket.ScannedItems.Add(si);
 
