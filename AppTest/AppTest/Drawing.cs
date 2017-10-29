@@ -111,6 +111,24 @@ namespace AppTest
             canvas.DrawBitmap(hp, canvas.Width / 10, canvas.Height / 15, paint);
             canvas.DrawBitmap(ap, canvas.Width / 10, canvas.Height / 15 + text.TextSize * 2, paint);
             canvas.DrawText(name, canvas.Width / 10, 50, text);
+
+            Paint green = new Paint
+            {
+                AntiAlias = true,
+                Color = Color.Rgb(0x99, 0xcc, 0),
+            };
+            green.SetStyle(Paint.Style.FillAndStroke);
+
+            Paint red = new Paint
+            {
+                AntiAlias = true,
+                Color = Color.Rgb(0xff, 0x44, 0x44)
+            };
+            red.SetStyle(Paint.Style.FillAndStroke);
+
+            float middle = canvas.Width * 0.25f;
+            canvas.DrawPaint(red);
+            canvas.DrawRect(0, 0, middle, canvas.Height, green);
         }
     }
 }
