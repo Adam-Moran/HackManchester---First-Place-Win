@@ -5,6 +5,13 @@ using Android.OS;
 using AppTest.Model;
 using ZXing.Mobile;
 using Android.Content;
+using System;
+using System.IO;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace AppTest
 {
@@ -12,6 +19,13 @@ namespace AppTest
     public class MainActivity : Activity
     {
         public List<ScannedItem> scannedItems;
+        private HttpClient client;
+
+        public MainActivity()
+        {
+            client = new HttpClient();
+            client.MaxResponseContentBufferSize = 256000;
+        }
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -20,8 +34,8 @@ namespace AppTest
             SetContentView(Resource.Layout.Main);
             Button qrReader = FindViewById<Button>(Resource.Id.qrReader);
             Button finished = FindViewById<Button>(Resource.Id.finished);
-            SetContentView(new Drawing(this));
-
+            //SetContentView(new Drawing(this));
+            var a = GetDepts();
             //qrReader button
             qrReader.Click += async (sender, e) =>
             {
@@ -36,7 +50,7 @@ namespace AppTest
                         ZXing.BarcodeFormat.EAN_13
                     }
                 };
-                
+
                 scanner.TopText = "Align red line with barcode";
 
                 //wait for scan
@@ -67,6 +81,19 @@ namespace AppTest
                     StartActivity(monster);
                 }
             };
+        }
+        public async Task<string[]> GetDepts()
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://<ipAddress:port>/");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                var text = FindViewById<TextView>(Resource.Id.textView1);
+                var a = await client.GetAsync("/api/dept");
+                text.Text = "test";
+                return null;
+            }
         }
     }
 }
