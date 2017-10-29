@@ -12,29 +12,38 @@ using Android.Widget;
 
 namespace AppTest
 {
-    class Dictionary
+    public class DictionaryItem
+    {
+        public string name;
+        public int image;
+        public DictionaryItem(string nm, int img)
+        {
+            name = nm; image = img;
+        }
+    }
+    public class Dictionary
     {
         public Dictionary<string, object> productDictionary = new Dictionary<string, object>
         {
-            { "510555260112", new {name = "Water", image = Resource.Drawable.water}},
-            { "5000159500920", new {name = "M&M's", image = Resource.Drawable.water}},
-            { "5000159503938", new {name = "Revels", image = Resource.Drawable.water}},
-            { "5000159458290", new {name = "Galaxy", image = Resource.Drawable.water}},
-            { "5020379129565", new {name = "Ginger Nuts", image = Resource.Drawable.water}},
-            { "5054268158985", new {name = "Chocolate Cookies", image = Resource.Drawable.water}},
-            { "5060292307909", new {name = "Star Wars Puffs", image = Resource.Drawable.water}},
-            { "5054267000216", new {name = "Lucozade", image = Resource.Drawable.water}},
-            { "3329770056923", new {name = "Froobe", image = Resource.Drawable.water}},
-            { "5030765032904", new {name = "Caramel Chocolate", image = Resource.Drawable.water}},
-            { "7613033591877", new {name = "Blue Ribbon", image = Resource.Drawable.water}},
-            { "Key1", new {name = "haribo", image = Resource.Drawable.haribobears}},
-            { "7622210723512", new {name = "Chomp", image = Resource.Drawable.water}},
-            { "8008440222008", new {name = "Peroni", image = Resource.Drawable.water}},
-            { "5020379129541", new {name = "Fruit Shortcake", image = Resource.Drawable.water}},
-            { "Key1", new {name = "Redbull", image = Resource.Drawable.redbull}},
-            { "Key1", new {name = "Pasta", image = Resource.Drawable.pasta}},
-            { "Key1", new {name = "Cereal", image = Resource.Drawable.Cereal}},
-            { "Key1", new {name = "Name1", image = Resource.Drawable.water}},
+            { "510555260112", new DictionaryItem("Water", Resource.Drawable.water) },
+            { "5000159500920", new DictionaryItem("M&M's", Resource.Drawable.water)},
+            { "5000159503938", new DictionaryItem("Revels", Resource.Drawable.water)},
+            { "5000159458290", new DictionaryItem("Galaxy", Resource.Drawable.water)},
+            { "5020379129565", new DictionaryItem("Ginger Nuts", Resource.Drawable.water)},
+            { "5054268158985", new DictionaryItem("Chocolate Cookies", Resource.Drawable.water)},
+            { "5060292307909", new DictionaryItem("Star Wars Puffs", Resource.Drawable.water)},
+            { "5054267000216", new DictionaryItem("Lucozade", Resource.Drawable.water)},
+            { "3329770056923", new DictionaryItem("Froobe", Resource.Drawable.water)},
+            { "5030765032904", new DictionaryItem("Caramel Chocolate", Resource.Drawable.water)},
+            { "7613033591877", new DictionaryItem("Blue Ribbon", Resource.Drawable.water)},
+            { "Key1", new DictionaryItem("haribo", Resource.Drawable.haribobears)},
+            { "7622210723512", new DictionaryItem("Chomp", Resource.Drawable.water)},
+            { "8008440222008", new DictionaryItem("Peroni", Resource.Drawable.water)},
+            { "5020379129541", new DictionaryItem("Fruit Shortcake", Resource.Drawable.water)},
+            //{ "Key1", new DictionaryItem("Redbull", Resource.Drawable.redbull)},
+            //{ "Key1", new DictionaryItem("Pasta", Resource.Drawable.pasta)},
+            //{ "Key1", new DictionaryItem("Cereal", Resource.Drawable.Cereal)},
+            //{ "Key1", new DictionaryItem("Name1", Resource.Drawable.water)},
         };
     }
 }

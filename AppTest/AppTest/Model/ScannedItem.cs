@@ -15,5 +15,7 @@ namespace AppTest.Model
     public class ScannedItem
     {
         public string Barcode { set; get; }
+        public string Name { set; get; }
+        public int image { set; get; }
     }
 }

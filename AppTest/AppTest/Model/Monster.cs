@@ -22,12 +22,16 @@ namespace AppTest.Model
 
         public Monster(ShoppingBasket shoppingBasket)
         {
-            images = new int[] { Resource.Drawable.water, Resource.Drawable.flump, Resource.Drawable.haribobears, Resource.Drawable.bread, Resource.Drawable.redbull, Resource.Drawable.pasta, Resource.Drawable.e3 };
-            bodyParts = new Bitmap[7];
-            // bg = BitmapFactory.DecodeResource(Application.Context.Resources, Resource.Drawable.BackgroundSmall);
-            for (int i = 0; i < 7; i++)
+            images = new int[6];
+            for (int i = 0; i < shoppingBasket.ScannedItems.Count; i++)
             {
-                bodyParts[i] = BitmapFactory.DecodeResource(Application.Context.Resources, images[i]);
+                images[i] = shoppingBasket.ScannedItems.ElementAt(0).image;//Resource.Drawable.water, Resource.Drawable.flump, Resource.Drawable.haribobears, Resource.Drawable.bread, Resource.Drawable.redbull, Resource.Drawable.pasta, Resource.Drawable.e3 };
+            }
+            bodyParts = new Bitmap[6];
+            // bg = BitmapFactory.DecodeResource(Application.Context.Resources, Resource.Drawable.BackgroundSmall);
+            for (int i = 0; i < 6; i++)
+            {
+                bodyParts[i] = BitmapFactory.DecodeResource(Application.Context.Resources, images[0]);
             }
         }
 

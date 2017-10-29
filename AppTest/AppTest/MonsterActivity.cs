@@ -15,11 +15,13 @@ namespace AppTest
     [Activity(Label = "AppTest", MainLauncher = false)]
     class MonsterActivity : Activity
     {
+        public Dictionary dictionary;
         public Monster monster;
         public ShoppingBasket shoppingBasket;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             shoppingBasket = new ShoppingBasket();
+            dictionary = new Dictionary();
             base.OnCreate(savedInstanceState);
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Monster);
@@ -47,6 +49,9 @@ namespace AppTest
                 if (item != "")
                 {
                     ScannedItem si = new ScannedItem { Barcode = item };
+                    DictionaryItem dItem = (DictionaryItem)dictionary.productDictionary[si.Barcode];
+                    si.Name = dItem.name;
+                    si.image = dItem.image;
                     shoppingBasket.ScannedItems.Add(si);
                 }
             }
