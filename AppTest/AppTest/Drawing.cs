@@ -2,6 +2,9 @@
 using Android.Graphics;
 using Android.Views;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using RandomNameGeneratorLibrary;
 
 namespace AppTest
@@ -24,8 +27,8 @@ namespace AppTest
 
         public Drawing(Context context, Bitmap[] bP,int health, int attack) : base(context)
         {
-            hp = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.hp);
-            ap = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.ap);
+            hp = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.health);
+            ap = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.attack);
             Health = health;
             Attack = attack;
             text = new Paint();
@@ -82,17 +85,18 @@ namespace AppTest
             //bodyRects[EYE2] = new Rect(canvas.Width / 2, canvas.Height / 7, 5 * (canvas.Width / 8)  ,5 * (canvas.Height / 22));
             Rect bg_rs = new Rect(0, 0, bg.Width, bg.Height);
             Rect bg_rd = new Rect(0, 0, canvas.Width, canvas.Height);
-
+            List<Bitmap> list = new List<Bitmap>();
             //draw background
             canvas.DrawBitmap(bg, bg_rs, bg_rd, paint);
-
+            list.Add(bg);
             //Shoulders
             canvas.DrawBitmap(bodyParts[BODY], bodySourceRects[SHOULDERS], bodyRects[SHOULDERS], paint);
-
+            list.Add(bodyParts[BODY]);
             //draw monster body parts
             for (int i = 0; i<6; i++)
             {
                 canvas.DrawBitmap(bodyParts[i], bodySourceRects[i], bodyRects[i], paint);
+                list.Add(bodyParts[i]);
             }
             canvas.DrawBitmap(eye, bodySourceRects[6], bodyRects[6], paint);
             
@@ -100,7 +104,30 @@ namespace AppTest
             var name = personGenerator.GenerateRandomFirstAndLastName();
             text.TextSize = canvas.Width/13;
             text.Color = Color.Black;
-            var background = new Rect(-50, -50, canvas.Width+50, canvas.Height / 10);
+            canvas.DrawText(Health.ToString(), (canvas.Width / 20) + 100, canvas.Height/16 + text.TextSize * 1, text);
+            canvas.DrawText(Attack.ToString(), (canvas.Width / 20) + 100, canvas.Height/16 + text.TextSize* 3, text);
+            canvas.DrawBitmap(hp, canvas.Width / 20, canvas.Height / 16, paint);
+            canvas.DrawBitmap(ap, canvas.Width / 20, canvas.Height / 16 + text.TextSize * 2, paint);
+            canvas.DrawText(name, canvas.Width / 20, 50, text);
+            
+            /*Paint green = new Paint
+            {
+                AntiAlias = true,
+                Color = Color.Rgb(0x99, 0xcc, 0),
+            };
+            green.SetStyle(Paint.Style.FillAndStroke);
+
+            Paint red = new Paint
+            {
+                AntiAlias = true,
+                Color = Color.Rgb(0xff, 0x44, 0x44)
+            };
+            red.SetStyle(Paint.Style.FillAndStroke);*/
+
+            //float middle = canvas.Width * 0.25f;
+            //canvas.DrawPaint(red);
+            //canvas.DrawRect(0, 0, middle, canvas.Height, green);
+            var background = new Rect(-50, -200, canvas.Width + 50, canvas.Height / 10);
             canvas.DrawBitmap(map, null, background, paint);
 
             text.FakeBoldText = true;
@@ -109,5 +136,7 @@ namespace AppTest
             canvas.DrawText("AP: " + Attack, (float)(canvas.Width / 1.35f), 110, text);
             canvas.DrawText(name, canvas.Width / 4, 50, text);
         }
+
+        
     }
 }
