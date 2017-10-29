@@ -2039,7 +2039,7 @@ namespace AppTest
 			public const int eyes2 = 2130837609;
 			
 			// aapt resource value: 0x7f02006a
-			public const int froob = 2130837610;
+			public const int eyes3 = 2130837610;
 			
 			// aapt resource value: 0x7f02006b
 			public const int flump = 2130837611;
@@ -2307,9 +2307,6 @@ namespace AppTest
 			
 			// aapt resource value: 0x7f0200c3
 			public const int mr_ic_media_route_mono_dark = 2130837699;
-			
-			// aapt resource value: 0x7f0200cd
-			public const int notification_template_icon_bg = 2130837709;
 			
 			// aapt resource value: 0x7f0200c4
 			public const int mr_ic_media_route_mono_light = 2130837700;

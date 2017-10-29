@@ -20,7 +20,6 @@ namespace AppTest
         public ShoppingBasket shoppingBasket;
         public int Health;
         public int Attack;
-        public Random rnd;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             shoppingBasket = new ShoppingBasket();

@@ -49,10 +49,10 @@ namespace AppTest
                 var options = new MobileBarcodeScanningOptions
                 {
                     TryHarder = true,
-                    PossibleFormats = new List<ZXing.BarcodeFormat>
+                    /*PossibleFormats = new List<ZXing.BarcodeFormat>
                     {
                         ZXing.BarcodeFormat.EAN_13, ZXing.BarcodeFormat.EAN_8
-                    }
+                    }*/
                 };
 
                 scanner.TopText = "Align red line with barcode";
