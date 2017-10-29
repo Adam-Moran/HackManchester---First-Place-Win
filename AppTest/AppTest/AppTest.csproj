@@ -228,6 +228,9 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\beans2.png" />
   </ItemGroup>
+	<ItemGroup>
+		<AndroidResource Include="Resources\drawable\bg2.png" />
+	</ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Cookies.png" />
   </ItemGroup>
