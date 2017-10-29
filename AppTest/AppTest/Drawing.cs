@@ -13,6 +13,7 @@ namespace AppTest
         private Bitmap bg;
         private Bitmap eye;
         private Bitmap eye2;
+        private Bitmap hp, ap;
         private Bitmap[] bodyParts;
         private Bitmap map;
         private Paint paint;
@@ -24,6 +25,8 @@ namespace AppTest
 
         public Drawing(Context context, Bitmap[] bP,int health, int attack) : base(context)
         {
+            hp = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.hp);
+            ap = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.ap);
             Health = health;
             Attack = attack;
             text = new Paint();
@@ -67,6 +70,8 @@ namespace AppTest
 
         protected override void OnDraw(Canvas canvas)
         {
+            Rect apRect = new Rect(canvas.Width / 10, 100, 50, 50);
+            Rect hpRect = new Rect(canvas.Width / 10, 150, 50, 50);
             bodyRects[LEG1] = new Rect(canvas.Width / 4, canvas.Height / 2, 3*(canvas.Width / 8), canvas.Height);
             bodyRects[LEG2] = new Rect(5*(canvas.Width / 8), canvas.Height /2 , 3*(canvas.Width / 4), canvas.Height);
             bodyRects[BODY] = new Rect(canvas.Width / 4, canvas.Height / 4, canvas.Width / 2 + canvas.Width / 4, 2 * (canvas.Height / 3));
@@ -101,16 +106,38 @@ namespace AppTest
             
             var personGenerator = new PersonNameGenerator();
             var name = personGenerator.GenerateRandomFirstAndLastName();
-            text.TextSize = canvas.Width/name.Length+5;
+            text.TextSize = canvas.Width/13;
             text.Color = Color.Black;
+            canvas.DrawText(Health.ToString(), (canvas.Width / 12) + 100, canvas.Height/16 + text.TextSize * 1, text);
+            canvas.DrawText(Attack.ToString(), (canvas.Width / 12) + 100, canvas.Height/16 + text.TextSize* 3, text);
+            canvas.DrawBitmap(hp, canvas.Width / 12, canvas.Height / 16, paint);
+            canvas.DrawBitmap(ap, canvas.Width / 12, canvas.Height / 16 + text.TextSize * 2, paint);
+            canvas.DrawText(name, canvas.Width / 10, 50, text);
 
+            Paint green = new Paint
+            {
+                AntiAlias = true,
+                Color = Color.Rgb(0x99, 0xcc, 0),
+            };
+            green.SetStyle(Paint.Style.FillAndStroke);
+
+            Paint red = new Paint
+            {
+                AntiAlias = true,
+                Color = Color.Rgb(0xff, 0x44, 0x44)
+            };
+            red.SetStyle(Paint.Style.FillAndStroke);
+
+            float middle = canvas.Width * 0.25f;
+            canvas.DrawPaint(red);
+            canvas.DrawRect(0, 0, middle, canvas.Height, green);
             var background = new Rect(-50, -200, canvas.Width + 50, canvas.Height / 10);
-            canvas.DrawBitmap(map,null ,background,paint);
+            canvas.DrawBitmap(map, null, background, paint);
 
             text.FakeBoldText = true;
 
-            canvas.DrawText("HP: "+Health, canvas.Width / 16, 110, text);
-            canvas.DrawText("AP: "+Attack, (float)(canvas.Width / 1.35f), 110, text);
+            canvas.DrawText("HP: " + Health, canvas.Width / 16, 110, text);
+            canvas.DrawText("AP: " + Attack, (float)(canvas.Width / 1.35f), 110, text);
             canvas.DrawText(name, canvas.Width / 4.2f, 225, text);
         }
     }
