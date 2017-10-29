@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using SkiaSharp;
 using Android.Graphics;
+using RandomNameGeneratorLibrary;
 
 namespace AppTest.Model
 {
@@ -19,6 +20,7 @@ namespace AppTest.Model
         // private Bitmap bg;
         private Bitmap[] bodyParts;
         private int[] images;
+        public string name;
 
         public Monster(ShoppingBasket shoppingBasket)
         {
@@ -33,6 +35,9 @@ namespace AppTest.Model
             {
                 bodyParts[i] = BitmapFactory.DecodeResource(Application.Context.Resources, images[i]);
             }
+
+            var personGenerator = new PersonNameGenerator();
+            name = personGenerator.GenerateRandomFirstAndLastName();
         }
 
         public Bitmap[] GetImages()
