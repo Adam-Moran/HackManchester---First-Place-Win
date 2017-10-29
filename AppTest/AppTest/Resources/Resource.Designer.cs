@@ -1955,10 +1955,10 @@ namespace AppTest
 			public const int beans = 2130837581;
 			
 			// aapt resource value: 0x7f02004e
-			public const int beans_sm = 2130837582;
+			public const int beans2 = 2130837582;
 			
 			// aapt resource value: 0x7f02004f
-			public const int bg = 2130837583;
+			public const int beans_sm = 2130837583;
 			
 			// aapt resource value: 0x7f020050
 			public const int bread = 2130837584;

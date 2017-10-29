@@ -127,10 +127,6 @@
     <Compile Include="FinalDrawing.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Model\Monster.cs" />
-    <Compile Include="Model\MonsterArm.cs" />
-    <Compile Include="Model\MonsterHead.cs" />
-    <Compile Include="Model\MonsterLeg.cs" />
-    <Compile Include="Model\MonsterTorso.cs" />
     <Compile Include="Model\ScannedItem.cs" />
     <Compile Include="Model\ShoppingBasket.cs" />
     <Compile Include="MonsterActivity.cs" />
@@ -229,7 +225,7 @@
     <AndroidResource Include="Resources\drawable\water.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\bg.png" />
+    <AndroidResource Include="Resources\drawable\beans2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />
