@@ -8,6 +8,7 @@ namespace AppTest
     class Drawing : View
     {
         private int LEG1 = 0, LEG2 = 1, BODY = 2, HEAD = 3, ARM1 = 4, ARM2 = 5, FACE = 6, SHOULDERS = 7;
+        private bool[] armUp;
         private Bitmap bg;
         private Bitmap face;
         private Bitmap[] bodyParts;
@@ -20,6 +21,9 @@ namespace AppTest
         {
             text = new Paint();
             Random random = new Random();
+            armUp = new bool[2];
+            armUp[0] = random.Next() % 2 == 1 ? true : false;
+            armUp[1] = random.Next() % 2 == 1 ? true : false;
             bodyParts = bP;
             bodySourceRects = new Rect[8];
             bodyRects = new Rect[8];
@@ -53,7 +57,15 @@ namespace AppTest
             bodyRects[LEG2] = new Rect(5*(canvas.Width / 8), canvas.Height /2 , 3*(canvas.Width / 4), canvas.Height);
             bodyRects[BODY] = new Rect(canvas.Width / 4, canvas.Height / 4, canvas.Width / 2 + canvas.Width / 4, 2 * (canvas.Height / 3));
             bodyRects[HEAD] = new Rect(canvas.Width / 3, canvas.Height / 8, 2 * (canvas.Width / 3), 5 * (canvas.Height / 16));
-            bodyRects[ARM1] = new Rect(canvas.Width / 8, canvas.Height / 4, canvas.Width / 4, (2 * (canvas.Height / 3))-armLength);
+            if(armUp[0])
+                bodyRects[ARM1] = new Rect(canvas.Width / 8, canvas.Height / 4, canvas.Width / 4, (2 * (canvas.Height / 3)) - armLength);
+            else
+                bodyRects[ARM1] = new Rect(canvas.Width / 8, canvas.Height + armLength, canvas.Width / 4, canvas.Height / 4);
+            if (armUp[1])
+                bodyRects[ARM1] = new Rect(canvas.Width / 8, canvas.Height / 4, canvas.Width / 4, (2 * (canvas.Height / 3))-armLength);
+            else
+                bodyRects[ARM1] = new Rect(canvas.Width / 8, canvas.Height + armLength, canvas.Width / 4, canvas.Height / 4);
+
             bodyRects[ARM2] = new Rect(6 * (canvas.Width / 8), canvas.Height / 4, 7 * (canvas.Width / 8), (2 * (canvas.Height / 3))-armLength);
             bodyRects[FACE] = new Rect(canvas.Width / 3, canvas.Height / 8, 2 * (canvas.Width / 3), 5 * (canvas.Height / 16));
             bodyRects[SHOULDERS] = new Rect(canvas.Width / 8, canvas.Height / 4, 7 * (canvas.Width / 8), 3*(canvas.Height / 8));
