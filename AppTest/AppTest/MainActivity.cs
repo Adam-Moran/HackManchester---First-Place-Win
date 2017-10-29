@@ -20,7 +20,7 @@ namespace AppTest
             SetContentView(Resource.Layout.Main);
             Button qrReader = FindViewById<Button>(Resource.Id.qrReader);
             Button finished = FindViewById<Button>(Resource.Id.finished);
-            SetContentView(new Drawing(this));
+            //SetContentView(new Drawing(this));
 
             //qrReader button
             qrReader.Click += async (sender, e) =>

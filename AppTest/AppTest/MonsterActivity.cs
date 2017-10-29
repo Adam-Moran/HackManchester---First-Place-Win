@@ -28,13 +28,14 @@ namespace AppTest
             if (barcodes != "")
             {
                 PopulateShoppingBasket(barcodes);
-                CreateMonster();
+                monster = CreateMonster();
+                SetContentView(new FinalDrawing(this, monster.GetImages().ElementAt(1), 0));
             }
         }
 
-        private void CreateMonster()
+        private Monster CreateMonster()
         {
-            monster = new Monster(shoppingBasket);
+            return new Monster(shoppingBasket);
         }
 
         private void PopulateShoppingBasket(string barcodes)
@@ -46,7 +47,7 @@ namespace AppTest
                 if (item != "")
                 {
                     ScannedItem si = new ScannedItem { Barcode = item };
-                    shoppingBasket.scannedItems.Add(si);
+                    shoppingBasket.ScannedItems.Add(si);
                 }
             }
         }

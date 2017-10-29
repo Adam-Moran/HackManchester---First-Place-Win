@@ -14,18 +14,23 @@ namespace AppTest.Model
 {
     public class ShoppingBasket
     {
-        public List<ScannedItem> scannedItems { get; set; }
+        public List<ScannedItem> ScannedItems { get; set; }
         public DateTime ShoppingDate { get; set; }
         public string Seed { get; set; }
 
         public ShoppingBasket()
         {
-            scannedItems = new List<ScannedItem>();
+            ScannedItems = new List<ScannedItem>();
+        }
+
+        public ScannedItem Get(int i)
+        {
+            return ScannedItems.ElementAt(i);
         }
 
         public void Add(ScannedItem si)
         {
-            scannedItems.Add(si);
+            ScannedItems.Add(si);
         }
 
     }
