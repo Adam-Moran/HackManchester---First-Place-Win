@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
+﻿using Android.Content;
 using Android.Graphics;
 using Android.Graphics.Drawables;
-using Android.Graphics.Drawables.Shapes;
-using Android.OS;
-using Android.Runtime;
-using Android.Util;
 using Android.Views;
-using Android.Widget;
 
 namespace AppTest
 {
@@ -20,58 +9,49 @@ namespace AppTest
     {
         private readonly ShapeDrawable _shape;
         private Bitmap bg;
-        private Bitmap monster;
+        private Bitmap[] bodyParts;
         private Paint paint;
-        private Rect headRect, bodyRect, leg1Rect, leg2Rect, arm1Rect, arm2Rect;
+        private Rect[] bodyRects, bodySourceRects;
 
         public Drawing(Context context) : base(context)
         {
+            bodyParts = new Bitmap[6];
+            bodySourceRects = new Rect[6];
+            bodyRects = new Rect[6];
             bg = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.BackgroundSmall);
-            monster = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.beans);
+            for(int i = 0; i<6; i++)
+            {
+                bodyParts[i] = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.beans);
+                bodySourceRects[i] = new Rect(0, 0, bodyParts[i].Width, bodyParts[i].Height);
+            }
             //configure Paint
             paint = new Paint();
             paint.SetARGB(255, 200, 255, 0);
             paint.SetStyle(Paint.Style.Stroke);
             paint.StrokeWidth = 4;
 
-            //Squid's Oval stuff
-            _shape = new ShapeDrawable(new OvalShape());
-            _shape.Paint.Set(paint);
-            _shape.SetBounds(20, 20, 300, 200);
-
         }
 
         protected override void OnDraw(Canvas canvas)
         {
-            headRect = new Rect(canvas.Width / 3, canvas.Height / 8, 2*(canvas.Width / 3), 5*(canvas.Height / 16));
-            bodyRect = new Rect(canvas.Width / 4, canvas.Height / 4, canvas.Width / 2 + canvas.Width / 4, 2*(canvas.Height / 3));
-            leg1Rect = new Rect(canvas.Width / 4, canvas.Height / 2, canvas.Width / 3, canvas.Height);
-            leg2Rect = new Rect(2*(canvas.Width / 3), canvas.Height /2 , 3*(canvas.Width / 4), canvas.Height);
-            arm1Rect = new Rect(canvas.Width / 8, canvas.Height / 4, canvas.Width / 4, 2 * (canvas.Height / 3));
-            arm2Rect = new Rect(6*(canvas.Width / 8), canvas.Height / 4, 7*(canvas.Width / 8), 2 * (canvas.Height / 3));
+            bodyRects[0] = new Rect(canvas.Width / 4, canvas.Height / 2, 3*(canvas.Width / 8), canvas.Height);
+            bodyRects[1] = new Rect(5*(canvas.Width / 8), canvas.Height /2 , 3*(canvas.Width / 4), canvas.Height);
+            bodyRects[2] = new Rect(canvas.Width / 4, canvas.Height / 4, canvas.Width / 2 + canvas.Width / 4, 2 * (canvas.Height / 3));
+            bodyRects[3] = new Rect(canvas.Width / 3, canvas.Height / 8, 2 * (canvas.Width / 3), 5 * (canvas.Height / 16));
+            bodyRects[4] = new Rect(canvas.Width / 8, canvas.Height / 4, canvas.Width / 4, 2 * (canvas.Height / 3));
+            bodyRects[5] = new Rect(6*(canvas.Width / 8), canvas.Height / 4, 7*(canvas.Width / 8), 2 * (canvas.Height / 3));
 
             Rect bg_rs = new Rect(0, 0, bg.Width, bg.Height);
             Rect bg_rd = new Rect(0, 0, canvas.Width, canvas.Height);
 
-            Rect monst_rs = new Rect(0, 0, monster.Width, monster.Height);
-            //Rect monst_rd = new Rect(canvas.Width/4, canvas.Height/2, canvas.Width / 2 + canvas.Width/4, canvas.Height);
-
             //draw background
             canvas.DrawBitmap(bg, bg_rs, bg_rd, paint);
 
-            //draw legs
-            canvas.DrawBitmap(monster, monst_rs, leg1Rect, paint);
-            canvas.DrawBitmap(monster, monst_rs, leg2Rect, paint);
-            //draw body
-            canvas.DrawBitmap(monster, monst_rs, bodyRect, paint);
-            //draw head
-            canvas.DrawBitmap(monster, monst_rs, headRect, paint);
-            //draw arms
-            canvas.DrawBitmap(monster, monst_rs, arm1Rect, paint);
-            canvas.DrawBitmap(monster, monst_rs, arm2Rect, paint);
-
-
-            _shape.Draw(canvas);
+            //draw monster body parts
+            for(int i = 0; i<6; i++)
+            {
+                canvas.DrawBitmap(bodyParts[i], bodySourceRects[i], bodyRects[i], paint);
+            }
         }
 
     }
