@@ -15,6 +15,7 @@ namespace AppTest
         private Bitmap eye2;
         private Bitmap hp, ap;
         private Bitmap[] bodyParts;
+        private Bitmap map;
         private Paint paint;
         public Paint text;
         private Rect[] bodyRects, bodySourceRects;
@@ -41,6 +42,7 @@ namespace AppTest
             armLength = random.Next() % 100;
             eye = eye2 = RandomEye(facenum, context);
             paint = new Paint();
+            map = (BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.paper));
         }
 
         public Bitmap RandomEye(int facenum,Context context)
@@ -124,9 +126,17 @@ namespace AppTest
             };
             red.SetStyle(Paint.Style.FillAndStroke);*/
 
-            //float middle = canvas.Width * 0.25f;
-            //canvas.DrawPaint(red);
-            //canvas.DrawRect(0, 0, middle, canvas.Height, green);
+            float middle = canvas.Width * 0.25f;
+            canvas.DrawPaint(red);
+            canvas.DrawRect(0, 0, middle, canvas.Height, green);
+            var background = new Rect(-50, -200, canvas.Width + 50, canvas.Height / 10);
+            canvas.DrawBitmap(map, null, background, paint);
+
+            text.FakeBoldText = true;
+
+            canvas.DrawText("HP: " + Health, canvas.Width / 16, 110, text);
+            canvas.DrawText("AP: " + Attack, (float)(canvas.Width / 1.35f), 110, text);
+            canvas.DrawText(name, canvas.Width / 4.2f, 225, text);
         }
     }
 }

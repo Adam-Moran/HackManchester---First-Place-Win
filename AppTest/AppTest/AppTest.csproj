@@ -283,10 +283,13 @@
     <AndroidResource Include="Resources\drawable\eyes.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ap.png" />
+    <AndroidResource Include="Resources\drawable\paper.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\hp.png" />
+    <AndroidResource Include="Resources\drawable\health.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\attack.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\eyes3.png" />
