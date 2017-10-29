@@ -32,7 +32,6 @@ namespace AppTest
             //SetContentView(new Drawing(this));
             //Bitmap[] test = new Bitmap[1];
             //SetContentView(new Drawing(this));
-
             //SetContentView(new Drawing(this));
             //qrReader button
             qrReader.Click += async (sender, e) =>
