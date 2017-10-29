@@ -23,15 +23,15 @@ namespace AppTest.Model
         public Monster(ShoppingBasket shoppingBasket)
         {
             images = new int[6];
-            for (int i = 0; i < shoppingBasket.ScannedItems.Count; i++)
+            for (int i = 0; i < 6; i++)
             {
-                images[i] = shoppingBasket.ScannedItems.ElementAt(0).image;//Resource.Drawable.water, Resource.Drawable.flump, Resource.Drawable.haribobears, Resource.Drawable.bread, Resource.Drawable.redbull, Resource.Drawable.pasta, Resource.Drawable.e3 };
+                images[i] = shoppingBasket.ScannedItems.ElementAt(i % shoppingBasket.ScannedItems.Count).image;//Resource.Drawable.water, Resource.Drawable.flump, Resource.Drawable.haribobears, Resource.Drawable.bread, Resource.Drawable.redbull, Resource.Drawable.pasta, Resource.Drawable.e3 };
             }
             bodyParts = new Bitmap[6];
             // bg = BitmapFactory.DecodeResource(Application.Context.Resources, Resource.Drawable.BackgroundSmall);
             for (int i = 0; i < 6; i++)
             {
-                bodyParts[i] = BitmapFactory.DecodeResource(Application.Context.Resources, images[0]);
+                bodyParts[i] = BitmapFactory.DecodeResource(Application.Context.Resources, images[i]);
             }
         }
 
