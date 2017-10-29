@@ -21,14 +21,23 @@ namespace AppTest
             bodySourceRects = new Rect[7];
             bodyRects = new Rect[7];
             bg = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.BackgroundSmall);
-            int facenum = random.Next() % 2;
+            int facenum = random.Next() % 5;
             switch(facenum)
             {
                 case 0:
-                    face = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.e5);
+                    face = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.e2);
                     break;
                 case 1:
+                    face = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.e3);
+                    break;
+                case 2:
                     face = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.e4);
+                    break;
+                case 3:
+                    face = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.e5);
+                    break;
+                case 4:
+                    face = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.e6);
                     break;
             }
             paint = new Paint();
