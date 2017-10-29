@@ -36,11 +36,11 @@ namespace AppTest
             //SetContentView(new Drawing(this));
             //SetContentView(new Drawing(this));
             //qrReader button
-            TranslateAnimation am = new TranslateAnimation(0,10,0,10);
-            am.Duration = 1000;
-            am.FillAfter = true;
-            ImageView im = FindViewById<ImageView>(Resource.Id.imageView1);
-            im.StartAnimation(am);
+            //TranslateAnimation am = new TranslateAnimation(0,10,0,10);
+            //am.Duration = 1000;
+            //am.FillAfter = true;
+            //ImageView im = FindViewById<ImageView>(Resource.Id.imageView1);
+            //im.StartAnimation(am);
             qrReader.Click += async (sender, e) =>
             {
                 //Set up barcode scanner
