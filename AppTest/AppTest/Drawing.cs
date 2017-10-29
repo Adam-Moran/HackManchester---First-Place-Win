@@ -1,7 +1,8 @@
 ﻿using Android.Content;
 using Android.Graphics;
-using Android.Views;
 using System;
+using Xamarin.Forms;
+using View = Android.Views.View;
 
 namespace AppTest
 {
@@ -13,6 +14,7 @@ namespace AppTest
         private Bitmap[] bodyParts;
         private Paint paint;
         private Rect[] bodyRects, bodySourceRects;
+        private Label label;
 
         public Drawing(Context context, Bitmap[] bP) : base(context)
         {
@@ -65,6 +67,7 @@ namespace AppTest
                 canvas.DrawBitmap(bodyParts[i], bodySourceRects[i], bodyRects[i], paint);
             }
             canvas.DrawBitmap(face, bodySourceRects[6], bodyRects[6], paint);
+            canvas.DrawText("Test",50,50,50,50,paint);
         }
     }
 }

@@ -53,6 +53,7 @@ namespace AppTest
                     si.Name = dItem.name;
                     si.image = dItem.image;
                     shoppingBasket.ScannedItems.Add(si);
+
                 }
             }
         }
