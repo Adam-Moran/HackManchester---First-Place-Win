@@ -15,7 +15,6 @@ namespace AppTest
         private bool[] armUp;
         private Bitmap bg;
         private Bitmap eye;
-        private Bitmap eye2;
         private Bitmap hp, ap;
         private Bitmap[] bodyParts;
         private Bitmap map;
@@ -43,7 +42,7 @@ namespace AppTest
             bg = random.Next() % 2 ==1 ? BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.BackgroundSmall) : BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.Background2Small);
             int facenum = random.Next() % 5;
             armLength = random.Next() % 100;
-            eye = eye2 = RandomEye(facenum, context);
+            eye = RandomEye(facenum, context);
             paint = new Paint();
             map = (BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.paper));
         }
@@ -54,16 +53,12 @@ namespace AppTest
             {
                 case 0:
                     return BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.eyes);
-                    break;
                 case 1:
                     return BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.eyes2);
-                    break;
                 case 2:
                     return BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.eyes3);
-                    break;
                 case 3:
                     return BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.eyes2);
-                    break;
             }
             return BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.eyes);
 
@@ -104,8 +99,7 @@ namespace AppTest
                 list.Add(bodyParts[i]);
             }
             canvas.DrawBitmap(eye, bodySourceRects[6], bodyRects[6], paint);
-            // canvas.DrawBitmap(eye2, bodySourceRects[8], bodyRects[8], paint);
-            list.Add(eye);
+            
             var personGenerator = new PersonNameGenerator();
             var name = personGenerator.GenerateRandomFirstAndLastName();
             text.TextSize = canvas.Width/13;
@@ -140,7 +134,7 @@ namespace AppTest
 
             canvas.DrawText("HP: " + Health, canvas.Width / 16, 110, text);
             canvas.DrawText("AP: " + Attack, (float)(canvas.Width / 1.35f), 110, text);
-            canvas.DrawText(name, canvas.Width / 4.2f, 225, text);
+            canvas.DrawText(name, canvas.Width / 4, 50, text);
         }
 
         
