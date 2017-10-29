@@ -12,23 +12,23 @@ namespace AppTest
         private Rect[] bodyRects, bodySourceRects;
         private int[] images;
 
-        public Drawing(Context context) : base(context)
+        public Drawing(Context context, Bitmap[] bP) : base(context)
         {
-            images = new int[] { Resource.Drawable.water, Resource.Drawable.flump, Resource.Drawable.haribobears, Resource.Drawable.bread, Resource.Drawable.redbull, Resource.Drawable.pasta, Resource.Drawable.e3};
-            bodyParts = new Bitmap[7];
+            //images = new int[] { Resource.Drawable.water, Resource.Drawable.flump, Resource.Drawable.haribobears, Resource.Drawable.bread, Resource.Drawable.redbull, Resource.Drawable.pasta, Resource.Drawable.e3};
+            bodyParts = bP;
             bodySourceRects = new Rect[7];
             bodyRects = new Rect[7];
             bg = BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.BackgroundSmall);
-            for(int i = 0; i<7; i++)
-            {
-                bodyParts[i] = BitmapFactory.DecodeResource(context.Resources, images[i]);
-                bodySourceRects[i] = new Rect(0, 0, bodyParts[i].Width, bodyParts[i].Height);
-            }
+            //for(int i = 0; i<7; i++)
+            //{
+            //    bodyParts[i] = BitmapFactory.DecodeResource(context.Resources, images[i]);
+            //    bodySourceRects[i] = new Rect(0, 0, bodyParts[i].Width, bodyParts[i].Height);
+            //}
             //configure Paint
-            paint = new Paint();
-            paint.SetARGB(255, 200, 255, 0);
-            paint.SetStyle(Paint.Style.Stroke);
-            paint.StrokeWidth = 4;
+            //paint = new Paint();
+            //paint.SetARGB(255, 200, 255, 0);
+            //paint.SetStyle(Paint.Style.Stroke);
+            //paint.StrokeWidth = 4;
 
         }
 
