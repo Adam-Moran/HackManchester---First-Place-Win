@@ -45,25 +45,23 @@ namespace AppTest
 
         public Bitmap RandomEye(int facenum,Context context)
         {
-            /*switch (facenum)
+            switch (facenum)
             {
                 case 0:
-                    return BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.e2);
+                    return BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.eyes);
                     break;
                 case 1:
-                    return BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.e3);
+                    return BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.eyes2);
                     break;
                 case 2:
-                    return BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.e4);
+                    return BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.eyes3);
                     break;
                 case 3:
-                    return BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.e5);
+                    return BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.eyes2);
                     break;
-                case 4:
-                    return BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.e6);
-                    break;
-            }*/
+            }
             return BitmapFactory.DecodeResource(context.Resources, Resource.Drawable.eyes);
+
         }
 
         protected override void OnDraw(Canvas canvas)
@@ -106,13 +104,13 @@ namespace AppTest
             var name = personGenerator.GenerateRandomFirstAndLastName();
             text.TextSize = canvas.Width/13;
             text.Color = Color.Black;
-            canvas.DrawText(Health.ToString(), (canvas.Width / 12) + 100, canvas.Height/16 + text.TextSize * 1, text);
-            canvas.DrawText(Attack.ToString(), (canvas.Width / 12) + 100, canvas.Height/16 + text.TextSize* 3, text);
-            canvas.DrawBitmap(hp, canvas.Width / 12, canvas.Height / 16, paint);
-            canvas.DrawBitmap(ap, canvas.Width / 12, canvas.Height / 16 + text.TextSize * 2, paint);
-            canvas.DrawText(name, canvas.Width / 10, 50, text);
+            canvas.DrawText(Health.ToString(), (canvas.Width / 20) + 100, canvas.Height/16 + text.TextSize * 1, text);
+            canvas.DrawText(Attack.ToString(), (canvas.Width / 20) + 100, canvas.Height/16 + text.TextSize* 3, text);
+            canvas.DrawBitmap(hp, canvas.Width / 20, canvas.Height / 16, paint);
+            canvas.DrawBitmap(ap, canvas.Width / 20, canvas.Height / 16 + text.TextSize * 2, paint);
+            canvas.DrawText(name, canvas.Width / 20, 50, text);
 
-            Paint green = new Paint
+            /*Paint green = new Paint
             {
                 AntiAlias = true,
                 Color = Color.Rgb(0x99, 0xcc, 0),
@@ -124,11 +122,11 @@ namespace AppTest
                 AntiAlias = true,
                 Color = Color.Rgb(0xff, 0x44, 0x44)
             };
-            red.SetStyle(Paint.Style.FillAndStroke);
+            red.SetStyle(Paint.Style.FillAndStroke);*/
 
-            float middle = canvas.Width * 0.25f;
-            canvas.DrawPaint(red);
-            canvas.DrawRect(0, 0, middle, canvas.Height, green);
+            //float middle = canvas.Width * 0.25f;
+            //canvas.DrawPaint(red);
+            //canvas.DrawRect(0, 0, middle, canvas.Height, green);
         }
     }
 }
