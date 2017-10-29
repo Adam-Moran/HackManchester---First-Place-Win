@@ -18,6 +18,7 @@ namespace AppTest
 
         public Drawing(Context context, Bitmap[] bP) : base(context)
         {
+            text = new Paint();
             Random random = new Random();
             bodyParts = bP;
             bodySourceRects = new Rect[8];
@@ -72,8 +73,9 @@ namespace AppTest
                 canvas.DrawBitmap(bodyParts[i], bodySourceRects[i], bodyRects[i], paint);
             }
             canvas.DrawBitmap(face, bodySourceRects[6], bodyRects[6], paint);
-            text.TextSize = 7;
-            canvas.DrawText("test",50,100,text);
+            text.TextSize = 120;
+            text.Color = Color.Black;
+            canvas.DrawText("test",canvas.Width /2, 50, text);
         }
     }
 }
