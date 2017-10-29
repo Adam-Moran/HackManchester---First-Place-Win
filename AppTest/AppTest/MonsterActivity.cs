@@ -12,7 +12,7 @@ using AppTest.Model;
 
 namespace AppTest
 {
-    [Activity(Label = "AppTest", MainLauncher = false)]
+    [Activity(Label = "AppTest", Theme = "@android:style/Theme.NoTitleBar", MainLauncher = false)]
     class MonsterActivity : Activity
     {
         public Dictionary dictionary;
