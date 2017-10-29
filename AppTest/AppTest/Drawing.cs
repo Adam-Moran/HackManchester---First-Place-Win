@@ -91,9 +91,9 @@ namespace AppTest
 
             var personGenerator = new PersonNameGenerator();
             var name = personGenerator.GenerateRandomFirstAndLastName();
-            canvas.DrawText(Health.ToString(), canvas.Width / 9, 200, text);
-            canvas.DrawText(Attack.ToString(), (float)(canvas.Width / 1.2), 200, text);
-            canvas.DrawText(name, canvas.Width / 4, 300, text);
+            canvas.DrawText(Health.ToString(), canvas.Width / 9, 100, text);
+            canvas.DrawText(Attack.ToString(), (float)(canvas.Width / 1.1), 100, text);
+            canvas.DrawText(name, canvas.Width / 6, 200, text);
         }
     }
 }
