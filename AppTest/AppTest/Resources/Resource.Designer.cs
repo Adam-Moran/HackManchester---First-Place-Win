@@ -2039,13 +2039,13 @@ namespace AppTest
 			public const int galaxy = 2130837609;
 			
 			// aapt resource value: 0x7f02006a
-			public const int hp = 2130837610;
+			public const int gingernuts = 2130837610;
 			
 			// aapt resource value: 0x7f02006b
 			public const int haribobears = 2130837611;
 			
 			// aapt resource value: 0x7f02006c
-			public const int hp = 2130837612;
+			public const int health = 2130837612;
 			
 			// aapt resource value: 0x7f02006d
 			public const int ic_audiotrack = 2130837613;
@@ -2300,34 +2300,43 @@ namespace AppTest
 			public const int mr_ic_pause_dark = 2130837696;
 			
 			// aapt resource value: 0x7f0200c1
-			public const int mr_ic_play_light = 2130837697;
-			
-			// aapt resource value: 0x7f0200ca
-			public const int notification_template_icon_bg = 2130837706;
+			public const int mr_ic_pause_light = 2130837697;
 			
 			// aapt resource value: 0x7f0200c2
-			public const int pasta = 2130837698;
+			public const int mr_ic_play_dark = 2130837698;
 			
 			// aapt resource value: 0x7f0200c3
-			public const int peroni = 2130837699;
+			public const int mr_ic_play_light = 2130837699;
+			
+			// aapt resource value: 0x7f0200cd
+			public const int notification_template_icon_bg = 2130837709;
 			
 			// aapt resource value: 0x7f0200c4
-			public const int redbull = 2130837700;
+			public const int paper = 2130837700;
 			
 			// aapt resource value: 0x7f0200c5
-			public const int revels = 2130837701;
+			public const int pasta = 2130837701;
 			
 			// aapt resource value: 0x7f0200c6
-			public const int ribbo = 2130837702;
+			public const int peroni = 2130837702;
 			
 			// aapt resource value: 0x7f0200c7
-			public const int shortcake = 2130837703;
+			public const int redbull = 2130837703;
 			
 			// aapt resource value: 0x7f0200c8
-			public const int starwars = 2130837704;
+			public const int revels = 2130837704;
 			
 			// aapt resource value: 0x7f0200c9
-			public const int water = 2130837705;
+			public const int ribbo = 2130837705;
+			
+			// aapt resource value: 0x7f0200ca
+			public const int shortcake = 2130837706;
+			
+			// aapt resource value: 0x7f0200cb
+			public const int starwars = 2130837707;
+			
+			// aapt resource value: 0x7f0200cc
+			public const int water = 2130837708;
 			
 			static Drawable()
 			{
