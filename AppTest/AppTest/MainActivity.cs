@@ -5,6 +5,8 @@ using Android.OS;
 using AppTest.Model;
 using ZXing.Mobile;
 using Android.Content;
+using Android.Graphics;
+using Java.Security;
 using System;
 using System.IO;
 using System.Net;
@@ -34,6 +36,11 @@ namespace AppTest
             SetContentView(Resource.Layout.Main);
             Button qrReader = FindViewById<Button>(Resource.Id.qrReader);
             Button finished = FindViewById<Button>(Resource.Id.finished);
+            //SetContentView(new Drawing(this));
+            Bitmap[] test = new Bitmap[1];
+            SetContentView(new FinalDrawing(this,test ,0));
+
+
             //SetContentView(new Drawing(this));
             var a = GetDepts();
             //qrReader button
