@@ -87,7 +87,7 @@ namespace AppTest
             canvas.DrawBitmap(face, bodySourceRects[6], bodyRects[6], paint);
             text.TextSize = 120;
             text.Color = Color.Black;
-            canvas.DrawText("test",canvas.Width /2, 50, text);
+            canvas.DrawText("test",canvas.Width /2, 100, text);
         }
     }
 }
