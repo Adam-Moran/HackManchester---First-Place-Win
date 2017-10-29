@@ -2444,8 +2444,8 @@ namespace AppTest
 			// aapt resource value: 0x7f07002e
 			public const int fill_vertical = 2131165230;
 			
-			// aapt resource value: 0x7f070074
-			public const int finished = 2131165300;
+			// aapt resource value: 0x7f070073
+			public const int finished = 2131165299;
 			
 			// aapt resource value: 0x7f070038
 			public const int @fixed = 2131165240;
@@ -2468,8 +2468,8 @@ namespace AppTest
 			// aapt resource value: 0x7f07003f
 			public const int image = 2131165247;
 			
-			// aapt resource value: 0x7f070072
-			public const int imageView1 = 2131165298;
+			// aapt resource value: 0x7f070074
+			public const int imageView1 = 2131165300;
 			
 			// aapt resource value: 0x7f07009b
 			public const int info = 2131165339;
@@ -2603,8 +2603,8 @@ namespace AppTest
 			// aapt resource value: 0x7f070007
 			public const int progress_horizontal = 2131165191;
 			
-			// aapt resource value: 0x7f070073
-			public const int qrReader = 2131165299;
+			// aapt resource value: 0x7f070072
+			public const int qrReader = 2131165298;
 			
 			// aapt resource value: 0x7f070054
 			public const int radio = 2131165268;
