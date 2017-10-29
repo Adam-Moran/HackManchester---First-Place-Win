@@ -40,11 +40,14 @@ namespace AppTest
         protected override void OnDraw(Canvas canvas)
         {
             //Draw Legs
-            canvas.DrawBitmap(pBitmap, DrawBodyPart(BitmapFactory.DecodeResource(Resources, Resource.Drawable.BackgroundSmall), 0.5f, 1, canvas.Width / 4, canvas.Height / 2, 5), null);
-            canvas.DrawBitmap(pBitmap, DrawBodyPart(BitmapFactory.DecodeResource(Resources, Resource.Drawable.BackgroundSmall), 0.5f, 1, canvas.Width / 2, canvas.Height / 2, -5), null);
+            canvas.DrawBitmap(pBitmap, DrawBodyPart(BitmapFactory.DecodeResource(Resources, Resource.Drawable.BackgroundSmall), 0.2f, 0.5f, canvas.Width / 4, 3 * (canvas.Height / 4), 5), null);
+            canvas.DrawBitmap(pBitmap, DrawBodyPart(BitmapFactory.DecodeResource(Resources, Resource.Drawable.BackgroundSmall), 0.2f, 0.5f, canvas.Width / 2, 3*(canvas.Height / 4), -5), null);
             //Draw Arms
-            canvas.DrawBitmap(pBitmap, DrawBodyPart(BitmapFactory.DecodeResource(Resources, Resource.Drawable.BackgroundSmall), 0.5f, 0.8f, canvas.Width / 8, canvas.Height / 8, 5), null);
-            canvas.DrawBitmap(pBitmap, DrawBodyPart(BitmapFactory.DecodeResource(Resources, Resource.Drawable.BackgroundSmall), 0.5f, 0.8f, 3 * (canvas.Width / 4), canvas.Height / 8, -5), null);
+            canvas.DrawBitmap(pBitmap, DrawBodyPart(BitmapFactory.DecodeResource(Resources, Resource.Drawable.BackgroundSmall), 0.2f, 0.8f, canvas.Width / 8, canvas.Height / 3, 5), null);
+            canvas.DrawBitmap(pBitmap, DrawBodyPart(BitmapFactory.DecodeResource(Resources, Resource.Drawable.BackgroundSmall), 0.2f, 0.8f, 3 * (canvas.Width / 4), canvas.Height / 3, -5), null);
+
+            //Draw Body
+            canvas.DrawBitmap(pBitmap, DrawBodyPart(BitmapFactory.DecodeResource(Resources, Resource.Drawable.BackgroundSmall), 1, 1, canvas.Width /8, canvas.Height /3, 0), null);
 
             //canvas.DrawBitmap(pBitmap, DrawBodyPart(BitmapFactory.DecodeResource(Resources, Resource.Drawable.BackgroundSmall), 0.5f, 1, 1.8f, 1.7f, -5), null);
             //canvas.DrawBitmap(pBitmap, DrawBodyPart(BitmapFactory.DecodeResource(Resources, Resource.Drawable.BackgroundSmall), 0.5f, 1, 3.6f, 1.7f, 5), null);
@@ -62,9 +65,7 @@ namespace AppTest
             Matrix matrix = new Matrix();
             float vw = Width;
             float vh = Height;
-            float s1x = vw / sizeX;
-            float s1y = vh / sizeY;
-            matrix.PostScale(sizeX, sizeY); // s1x, s1y);
+            matrix.PostScale(sizeX, sizeY);
             matrix.PostTranslate(xOffset, yOffset);
             matrix.PostRotate(rotate);
             return matrix;
