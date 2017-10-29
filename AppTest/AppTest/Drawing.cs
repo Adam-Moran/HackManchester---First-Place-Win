@@ -22,6 +22,8 @@ namespace AppTest
 
         public Drawing(Context context, Bitmap[] bP,int health, int attack) : base(context)
         {
+            Health = health;
+            Attack = attack;
             text = new Paint();
             Random random = new Random();
             armUp = new bool[2];
