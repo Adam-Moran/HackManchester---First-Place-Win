@@ -12,7 +12,7 @@ using AppTest.Model;
 
 namespace AppTest
 {
-    [Activity(Label = "AppTest", MainLauncher = false)]
+    [Activity(Label = "AppTest", Theme = "@android:style/Theme.NoTitleBar", MainLauncher = false)]
     class MonsterActivity : Activity
     {
         public Dictionary dictionary;
@@ -34,7 +34,7 @@ namespace AppTest
             {
                 PopulateShoppingBasket(barcodes);
                 monster = CreateMonster();
-                SetContentView(new Drawing(this, monster.GetImages()));
+                SetContentView(new Drawing(this, monster.GetImages(), Health,Attack));
             }
         }
 
@@ -63,9 +63,16 @@ namespace AppTest
                 if (item != "")
                 {
                     ScannedItem si = new ScannedItem { Barcode = item };
-                    DictionaryItem dItem = (DictionaryItem)dictionary.productDictionary[si.Barcode];
-                    si.Name = dItem.name;
-                    si.image = dItem.image;
+                    if (dictionary.productDictionary.ContainsKey(si.Barcode))
+                    {
+                        DictionaryItem dItem = (DictionaryItem)dictionary.productDictionary[si.Barcode];
+                        si.Name = dItem.name;
+                        si.image = dItem.image;
+                    } else
+                    {
+                        si.Name = "Unknown";
+                        si.image = Resource.Drawable.water;
+                    }
                     shoppingBasket.ScannedItems.Add(si);
 
                 }

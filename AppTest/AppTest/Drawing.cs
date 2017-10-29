@@ -18,14 +18,18 @@ namespace AppTest
         public Paint text;
         private Rect[] bodyRects, bodySourceRects;
         private int armLength;
+        public int Health;
+        public int Attack;
 
-        public Drawing(Context context, Bitmap[] bP) : base(context)
+        public Drawing(Context context, Bitmap[] bP,int health, int attack) : base(context)
         {
+            Health = health;
+            Attack = attack;
             text = new Paint();
             Random random = new Random();
             armUp = new bool[2];
-            armUp[0] = random.Next() % 2 == 1 ? true : false;
-            armUp[1] = random.Next() % 2 == 1 ? true : false;
+            armUp[0] = ((random.Next() % 2 == 1) ? true : false);
+            armUp[1] = ((random.Next() % 2 == 1) ? true : false);
             bodyParts = bP;
             bodySourceRects = new Rect[8];
             bodyRects = new Rect[8];
@@ -90,15 +94,12 @@ namespace AppTest
             if(armUp[0])
                 bodyRects[ARM1] = new Rect(canvas.Width / 8, canvas.Height / 4, canvas.Width / 4, (2 * (canvas.Height / 3)) - armLength);
             else
-                bodyRects[ARM1] = new Rect(canvas.Width / 8, canvas.Height + armLength, canvas.Width / 4, canvas.Height / 4);
+                bodyRects[ARM1] = new Rect(canvas.Width / 8, armLength, canvas.Width / 4, 3 * (canvas.Height / 8));
             if (armUp[1])
-                bodyRects[ARM1] = new Rect(canvas.Width / 8, canvas.Height / 4, canvas.Width / 4, (2 * (canvas.Height / 3))-armLength);
+                bodyRects[ARM2] = new Rect(6 * (canvas.Width / 8), canvas.Height / 4, 7 * (canvas.Width / 8), (2 * (canvas.Height / 3)) - armLength);
             else
-                bodyRects[ARM1] = new Rect(canvas.Width / 8, canvas.Height + armLength, canvas.Width / 4, canvas.Height / 4);
-
-            bodyRects[ARM2] = new Rect(6 * (canvas.Width / 8), canvas.Height / 4, 7 * (canvas.Width / 8), (2 * (canvas.Height / 3))-armLength);
-            bodyRects[EYE1] = new Rect(canvas.Width / 3+2, canvas.Height / 8, 2 * (canvas.Width / 3), 5 * (canvas.Height / 16));
-            
+                bodyRects[ARM2] = new Rect(6 * (canvas.Width / 8), armLength, 7 * (canvas.Width / 8), 3*(canvas.Height / 8));
+            bodyRects[FACE] = new Rect(canvas.Width / 3, canvas.Height / 8, 2 * (canvas.Width / 3), 5 * (canvas.Height / 16));
             bodyRects[SHOULDERS] = new Rect(canvas.Width / 8, canvas.Height / 4, 7 * (canvas.Width / 8), 3*(canvas.Height / 8));
             bodyRects[EYE2] = new Rect(canvas.Width / 3, canvas.Height / 8, (2 * (canvas.Width / 3)) + 2, 5 * (canvas.Height / 16));
             Rect bg_rs = new Rect(0, 0, bg.Width, bg.Height);
@@ -119,9 +120,12 @@ namespace AppTest
             canvas.DrawBitmap(eye2, bodySourceRects[8], bodyRects[8], paint);
             text.TextSize = 120;
             text.Color = Color.Black;
+
             var personGenerator = new PersonNameGenerator();
             var name = personGenerator.GenerateRandomFirstAndLastName();
-            canvas.DrawText(name,canvas.Width /2, 50, text);
+            canvas.DrawText(Health.ToString(), canvas.Width / 9, 100, text);
+            canvas.DrawText(Attack.ToString(), (float)(canvas.Width / 1.1), 100, text);
+            canvas.DrawText(name, canvas.Width / 6, 200, text);
         }
     }
 }
