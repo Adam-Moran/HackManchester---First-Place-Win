@@ -72,8 +72,8 @@ namespace AppTest
                 canvas.DrawBitmap(bodyParts[i], bodySourceRects[i], bodyRects[i], paint);
             }
             canvas.DrawBitmap(face, bodySourceRects[6], bodyRects[6], paint);
-
-            //canvas.DrawText("test",50,100,text);
+            text.TextSize = 7;
+            canvas.DrawText("test",50,100,text);
         }
     }
 }
