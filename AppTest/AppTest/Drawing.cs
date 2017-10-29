@@ -104,11 +104,11 @@ namespace AppTest
             var name = personGenerator.GenerateRandomFirstAndLastName();
             text.TextSize = canvas.Width/13;
             text.Color = Color.Black;
-            canvas.DrawText(Health.ToString(), (canvas.Width / 20) + 100, canvas.Height/16 + text.TextSize * 1, text);
-            canvas.DrawText(Attack.ToString(), (canvas.Width / 20) + 100, canvas.Height/16 + text.TextSize* 3, text);
-            canvas.DrawBitmap(hp, canvas.Width / 20, canvas.Height / 16, paint);
-            canvas.DrawBitmap(ap, canvas.Width / 20, canvas.Height / 16 + text.TextSize * 2, paint);
-            canvas.DrawText(name, canvas.Width / 20, 50, text);
+            //canvas.DrawText(Health.ToString(), (canvas.Width / 20) + 100, canvas.Height/16 + text.TextSize * 1, text);
+            //canvas.DrawText(Attack.ToString(), (canvas.Width / 20) + 100, canvas.Height/16 + text.TextSize* 3, text);
+            //canvas.DrawBitmap(hp, canvas.Width / 20, canvas.Height / 16, paint);
+            //canvas.DrawBitmap(ap, canvas.Width / 20, canvas.Height / 16 + text.TextSize * 2, paint);
+            //canvas.DrawText(name, canvas.Width / 20, 50, text);
             
             /*Paint green = new Paint
             {
