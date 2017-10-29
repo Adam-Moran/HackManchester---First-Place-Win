@@ -23,8 +23,8 @@ namespace AppTest
             text = new Paint();
             Random random = new Random();
             armUp = new bool[2];
-            armUp[0] = random.Next() % 2 == 1 ? true : false;
-            armUp[1] = random.Next() % 2 == 1 ? true : false;
+            armUp[0] = ((random.Next() % 2 == 1) ? true : false);
+            armUp[1] = ((random.Next() % 2 == 1) ? true : false);
             bodyParts = bP;
             bodySourceRects = new Rect[8];
             bodyRects = new Rect[8];
@@ -61,13 +61,11 @@ namespace AppTest
             if(armUp[0])
                 bodyRects[ARM1] = new Rect(canvas.Width / 8, canvas.Height / 4, canvas.Width / 4, (2 * (canvas.Height / 3)) - armLength);
             else
-                bodyRects[ARM1] = new Rect(canvas.Width / 8, canvas.Height + armLength, canvas.Width / 4, canvas.Height / 4);
+                bodyRects[ARM1] = new Rect(canvas.Width / 8, armLength, canvas.Width / 4, 3 * (canvas.Height / 8));
             if (armUp[1])
-                bodyRects[ARM1] = new Rect(canvas.Width / 8, canvas.Height / 4, canvas.Width / 4, (2 * (canvas.Height / 3))-armLength);
+                bodyRects[ARM2] = new Rect(6 * (canvas.Width / 8), canvas.Height / 4, 7 * (canvas.Width / 8), (2 * (canvas.Height / 3)) - armLength);
             else
-                bodyRects[ARM1] = new Rect(canvas.Width / 8, canvas.Height + armLength, canvas.Width / 4, canvas.Height / 4);
-
-            bodyRects[ARM2] = new Rect(6 * (canvas.Width / 8), canvas.Height / 4, 7 * (canvas.Width / 8), (2 * (canvas.Height / 3))-armLength);
+                bodyRects[ARM2] = new Rect(6 * (canvas.Width / 8), armLength, 7 * (canvas.Width / 8), 3*(canvas.Height / 8));
             bodyRects[FACE] = new Rect(canvas.Width / 3, canvas.Height / 8, 2 * (canvas.Width / 3), 5 * (canvas.Height / 16));
             bodyRects[SHOULDERS] = new Rect(canvas.Width / 8, canvas.Height / 4, 7 * (canvas.Width / 8), 3*(canvas.Height / 8));
 
