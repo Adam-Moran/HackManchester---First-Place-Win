@@ -63,9 +63,16 @@ namespace AppTest
                 if (item != "")
                 {
                     ScannedItem si = new ScannedItem { Barcode = item };
-                    DictionaryItem dItem = (DictionaryItem)dictionary.productDictionary[si.Barcode];
-                    si.Name = dItem.name;
-                    si.image = dItem.image;
+                    if (dictionary.productDictionary.ContainsKey(si.Barcode))
+                    {
+                        DictionaryItem dItem = (DictionaryItem)dictionary.productDictionary[si.Barcode];
+                        si.Name = dItem.name;
+                        si.image = dItem.image;
+                    } else
+                    {
+                        si.Name = "Unknown";
+                        si.image = Resource.Drawable.water;
+                    }
                     shoppingBasket.ScannedItems.Add(si);
 
                 }
