@@ -2,6 +2,7 @@
 using Android.Graphics;
 using Android.Views;
 using System;
+using RandomNameGeneratorLibrary;
 
 namespace AppTest
 {
@@ -87,7 +88,9 @@ namespace AppTest
             canvas.DrawBitmap(face, bodySourceRects[6], bodyRects[6], paint);
             text.TextSize = 120;
             text.Color = Color.Black;
-            canvas.DrawText("test",canvas.Width /2, 100, text);
+            var personGenerator = new PersonNameGenerator();
+            var name = personGenerator.GenerateRandomFirstAndLastName();
+            canvas.DrawText(name,canvas.Width /2, 50, text);
         }
     }
 }
