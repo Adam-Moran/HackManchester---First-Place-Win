@@ -44,7 +44,7 @@ namespace AppTest
                     TryHarder = true,
                     PossibleFormats = new List<ZXing.BarcodeFormat>
                     {
-                        ZXing.BarcodeFormat.EAN_13
+                        ZXing.BarcodeFormat.EAN_13, ZXing.BarcodeFormat.EAN_8
                     }
                 };
 
