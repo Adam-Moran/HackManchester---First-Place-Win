@@ -36,8 +36,7 @@ namespace AppTest.Model
                 bodyParts[i] = BitmapFactory.DecodeResource(Application.Context.Resources, images[i]);
             }
 
-            var personGenerator = new PersonNameGenerator();
-            name = personGenerator.GenerateRandomFirstAndLastName();
+            
         }
 
         public Bitmap[] GetImages()
